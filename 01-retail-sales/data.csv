@@ -1,0 +1,17 @@
+date,region,category,product,units,sales,cost
+2026-01-05,North,Electronics,Laptop,12,720000,600000
+2026-01-12,South,Electronics,Phone,25,500000,400000
+2026-01-18,West,Home,Chair,40,160000,112000
+2026-02-03,North,Electronics,Phone,30,600000,480000
+2026-02-14,East,Home,Table,18,216000,151200
+2026-02-21,South,Office,Printer,15,225000,180000
+2026-03-04,West,Electronics,Laptop,10,600000,500000
+2026-03-15,East,Office,Printer,20,300000,240000
+2026-03-22,North,Home,Chair,55,220000,154000
+2026-04-06,South,Electronics,Laptop,14,840000,700000
+2026-04-17,West,Office,Printer,22,330000,264000
+2026-04-25,East,Electronics,Phone,32,640000,512000
+2026-05-05,North,Office,Printer,18,270000,216000
+2026-05-16,South,Home,Table,24,288000,201600
+2026-05-23,West,Home,Chair,48,192000,134400
+2026-06-02,East,Electronics,Laptop,9,540000,450000

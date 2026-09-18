@@ -1,0 +1,2 @@
+SELECT month,revenue,revenue-cogs gross_profit,revenue-cogs-marketing-payroll-technology-other operating_profit,ROUND(100.0*(revenue-cogs)/revenue,2) gross_margin_pct,ROUND(100.0*(revenue-cogs-marketing-payroll-technology-other)/revenue,2) operating_margin_pct FROM financials ORDER BY month;
+SELECT SUM(revenue) total_revenue,SUM(revenue-cogs) total_gross_profit,SUM(revenue-cogs-marketing-payroll-technology-other) total_operating_profit FROM financials;

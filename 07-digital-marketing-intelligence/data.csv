@@ -1,0 +1,9 @@
+channel,campaign,impressions,clicks,spend,conversions,revenue,seo_score,engagement_rate
+SEO,Product Guide,18500,1665,0,92,184000,82,0.061
+SEO,How-To Blog,24200,1936,0,101,202000,88,0.074
+Paid Search,Brand,54000,3780,62000,302,512000,0,0.089
+Paid Search,Generic,81000,4860,114000,281,451000,0,0.061
+Paid Search,Competitor,46000,1840,67000,96,154000,0,0.049
+Social,Product Story,92000,2576,38000,74,118000,0,0.082
+Content,Case Study,31000,1240,12000,58,96000,76,0.103
+Content,Educational,27000,1080,8000,47,71000,84,0.112

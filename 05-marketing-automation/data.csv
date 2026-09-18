@@ -1,0 +1,13 @@
+lead_id,source,industry,company_size,fit_score,intent_score,outreach_attempted,response,workflow_status,latency_sec
+L001,LinkedIn,SaaS,51-200,88,91,1,positive,qualified,42
+L002,API,Manufacturing,201-500,79,74,1,no_response,follow_up,38
+L003,Website,Education,11-50,67,61,1,positive,qualified,31
+L004,API,Retail,51-200,82,69,1,no_response,follow_up,47
+L005,LinkedIn,Finance,501-1000,93,86,1,positive,qualified,36
+L006,Referral,Healthcare,51-200,91,94,0,pending,queued,22
+L007,API,IT Services,201-500,73,58,1,no_response,nurture,51
+L008,LinkedIn,Manufacturing,51-200,86,79,1,positive,qualified,34
+L009,Website,Real Estate,11-50,62,55,1,no_response,nurture,29
+L010,API,SaaS,51-200,95,90,1,positive,qualified,27
+L011,LinkedIn,Education,201-500,76,66,1,no_response,follow_up,44
+L012,Referral,Manufacturing,501-1000,89,83,0,pending,queued,19

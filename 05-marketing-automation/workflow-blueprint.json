@@ -1,0 +1,24 @@
+{
+  "name": "Marketing Automation Command Center",
+  "description": "Portfolio-safe n8n workflow blueprint for lead ingestion, qualification, outreach routing, content publishing and event logging.",
+  "nodes": [
+    {"id":"1","name":"Schedule / Webhook","type":"trigger","purpose":"Start on schedule or incoming lead event"},
+    {"id":"2","name":"API Lead Source","type":"http_request","purpose":"Fetch structured lead records"},
+    {"id":"3","name":"Normalize Lead","type":"code","purpose":"Standardize company, email, source and role fields"},
+    {"id":"4","name":"Deduplicate","type":"data_check","purpose":"Prevent repeated outreach"},
+    {"id":"5","name":"Lead Score","type":"rules","purpose":"Score fit, intent and engagement"},
+    {"id":"6","name":"Qualification Router","type":"if","purpose":"Route qualified and unqualified leads"},
+    {"id":"7","name":"AI Outreach Agent","type":"ai_agent","purpose":"Generate context-aware outreach task"},
+    {"id":"8","name":"Calling Agent","type":"telephony","purpose":"Optional connected-provider call workflow"},
+    {"id":"9","name":"LinkedIn Publisher","type":"social_publish","purpose":"Publish approved scheduled content"},
+    {"id":"10","name":"Follow-up Scheduler","type":"delay","purpose":"Create next action from outcome"},
+    {"id":"11","name":"Event Logger","type":"database","purpose":"Persist every workflow event"},
+    {"id":"12","name":"KPI Aggregator","type":"analytics","purpose":"Build operational metrics"}
+  ],
+  "governance": {
+    "human_approval": ["public_content", "high_risk_outreach"],
+    "logging": true,
+    "deduplication": true,
+    "consent_required_for_calling": true
+  }
+}

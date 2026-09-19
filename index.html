@@ -29,9 +29,46 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;background:line
 .search{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.42);backdrop-filter:blur(12px);display:grid;place-items:start center}.search.hide{display:none}.searchbox{width:min(760px,92vw);margin-top:11vh;border-radius:18px;overflow:hidden;background:rgba(19,22,29,.94);border:1px solid rgba(255,255,255,.15);box-shadow:0 30px 100px rgba(0,0,0,.6)}.searchline{display:flex;align-items:center;gap:9px;padding:15px;border-bottom:1px solid var(--line)}.searchline input{flex:1;background:none;border:0;outline:0;color:#f0f4f9;font-size:15px}.results button{width:100%;padding:13px 15px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;text-align:left}.results button:hover{background:rgba(255,255,255,.05)}.results small{color:#707a88}
 @media(max-width:1050px){.grid{grid-template-columns:1fr 1fr}.service-wrap{grid-template-columns:1fr}.intro{border-right:0;border-bottom:1px solid var(--line)}.svc-grid{grid-template-columns:1fr 1fr}.cred-grid{grid-template-columns:1fr}.contact-wrap{grid-template-columns:1fr}.contact-copy{border-right:0;border-bottom:1px solid var(--line)}}
 @media(max-width:720px){html,body{overflow:auto}.top .center{display:none}#app{position:relative;inset:auto;padding:47px 0 95px;min-height:100vh}.window{position:relative;inset:auto;margin:11px;min-height:720px}.home{grid-template-columns:1fr}.side{border-right:0;border-bottom:1px solid var(--line)}.hero{padding:35px 23px}.hero h1{font-size:44px}.metrics{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.project-side{display:none}.grid,.svc-grid,.two{grid-template-columns:1fr}.main{padding:22px}.intro,.contact-copy{padding:35px 23px}.cred-head{display:block;padding:25px 23px}.cred-grid{padding:22px}.form{padding:25px 23px}.modal{height:86vh}.modal-head{grid-template-columns:1fr}.bar{grid-template-columns:auto 1fr auto}.bar-right{display:none}}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--ease2:cubic-bezier(.18,.9,.22,1);--glow:0 0 90px rgba(141,179,255,.14)}
+body{font-family:Manrope,Inter,system-ui,sans-serif;cursor:none}
+body:before{animation:ambient 15s ease-in-out infinite alternate}
+@keyframes ambient{to{filter:hue-rotate(18deg) saturate(1.08);transform:scale(1.035)}}
+#cursor{position:fixed;z-index:999;left:0;top:0;width:12px;height:12px;border:1px solid rgba(255,255,255,.75);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width .18s,height .18s,background .18s,transform .08s;mix-blend-mode:difference}
+#cursor.big{width:44px;height:44px;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15)}
+#grain{position:fixed;inset:0;z-index:28;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+#notch2{position:fixed;z-index:95;left:50%;top:0;transform:translateX(-50%);width:208px;height:27px;border-radius:0 0 17px 17px;background:#030406;border:1px solid rgba(255,255,255,.07);overflow:hidden;transition:.5s var(--ease2);box-shadow:0 16px 42px rgba(0,0,0,.38)}
+#notch2.open{width:430px;height:122px;border-radius:0 0 24px 24px}
+#notch2 .nmini{height:27px;display:flex;align-items:center;justify-content:center;gap:7px;font:9px "DM Mono";color:#7f8995;cursor:pointer}
+#notch2 .nmini b{color:#e8edf5}
+#notch2 .nbody{padding:12px 15px;opacity:0;transform:translateY(-5px);transition:.25s}
+#notch2.open .nbody{opacity:1;transform:none}
+.nline{display:flex;justify-content:space-between;align-items:center}.nline strong{font-size:11px}.nline small{font:8px "DM Mono";color:#64707d}
+.nbuttons{display:flex;gap:6px;margin-top:11px}.nbuttons button{padding:7px 9px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);font-size:8px;color:#c2cad4}
+.nbuttons button:hover{background:rgba(255,255,255,.07)}
+.heroMain{overflow:hidden}.heroMain:before{content:"";position:absolute;left:8%;right:8%;top:17%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent)}
+.heroTitle{font-weight:700;text-wrap:balance}.heroCopy{font-size:13.5px}
+.facts b{letter-spacing:-.055em}
+.rail{background:linear-gradient(180deg,rgba(255,255,255,.014),transparent 60%)}
+.project{min-height:235px}
+.project:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(138,182,255,.09),transparent 38%);opacity:0;transition:.3s}
+.project:hover:before{opacity:1}
+.window{transform:translateY(34px) scale(.95);box-shadow:0 50px 160px rgba(0,0,0,.72),var(--glow)}
+.window.show{animation:windowIn .55s var(--ease2)}
+@keyframes windowIn{0%{opacity:0;transform:translateY(30px) scale(.94) rotateX(3deg)}70%{opacity:1;transform:translateY(-2px) scale(1.006) rotateX(0)}100%{opacity:1;transform:none}}
+.window.min{animation:genie .45s var(--ease2)}
+@keyframes genie{0%{opacity:1;transform:none;filter:none}100%{opacity:0;transform:translate(var(--dx,0),68vh) scaleX(.18) scaleY(.12);filter:blur(10px)}}
+#siri2{position:fixed;right:22px;bottom:95px;z-index:115;width:325px;padding:15px;border:1px solid rgba(255,255,255,.13);border-radius:19px;background:rgba(11,14,20,.82);backdrop-filter:blur(26px);box-shadow:0 38px 120px rgba(0,0,0,.6);opacity:0;transform:translateY(18px) scale(.96);pointer-events:none;transition:.35s var(--ease2)}
+#siri2.open{opacity:1;transform:none;pointer-events:auto}
+.siriTop{display:flex;align-items:center;gap:9px}.siriOrb{width:28px;height:28px;border-radius:50%;background:conic-gradient(#80c6ff,#ad86ff,#6ee3be,#80c6ff);box-shadow:0 0 26px rgba(135,181,255,.42)}
+.siriTop b{font-size:10px}.siriTop small{display:block;color:#66717d;font-size:7px;margin-top:2px}
+.siri2text{font-size:9px;color:#9aa3ae;line-height:1.6;margin:12px 0}.siriBtns{display:flex;gap:6px}.siriBtns button{font-size:8px;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.03)}
+.floatingLabel{position:absolute;right:27px;top:22px;font:8px "DM Mono";color:#5e6875;letter-spacing:.12em}
+@media(max-width:720px){body{cursor:auto}#cursor{display:none}#notch2{width:176px}#notch2.open{width:94vw}.heroTitle{font-size:47px}.heroCopy{font-size:12px}.floatingLabel{display:none}}
 </style>
 </head>
-<body>
+<body><div id="cursor"></div><div id="grain"></div>
 <div class="top">
   <div class="left"><button class="brand" onclick="openWin('home')">SD</button><button onclick="openWin('projects')">Work</button><button onclick="openWin('services')">Services</button><button onclick="openWin('credentials')">Credentials</button><button onclick="openWin('contact')">Contact</button></div>
   <div class="center" id="topTitle">Saket — Portfolio OS</div>

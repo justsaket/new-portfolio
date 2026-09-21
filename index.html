@@ -66,6 +66,47 @@ body:before{animation:ambient 15s ease-in-out infinite alternate}
 .siri2text{font-size:9px;color:#9aa3ae;line-height:1.6;margin:12px 0}.siriBtns{display:flex;gap:6px}.siriBtns button{font-size:8px;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.03)}
 .floatingLabel{position:absolute;right:27px;top:22px;font:8px "DM Mono";color:#5e6875;letter-spacing:.12em}
 @media(max-width:720px){body{cursor:auto}#cursor{display:none}#notch2{width:176px}#notch2.open{width:94vw}.heroTitle{font-size:47px}.heroCopy{font-size:12px}.floatingLabel{display:none}}
+
+/* === reference-grade macOS experience layer === */
+:root{--ease2:cubic-bezier(.18,.9,.22,1)}
+body{background:#05070b}
+#desktopApps{position:absolute;inset:0;z-index:8;pointer-events:none}
+.desktopIcon{position:absolute;width:82px;display:flex;flex-direction:column;align-items:center;gap:7px;color:#eef2f8;pointer-events:auto}
+.desktopIcon button{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;font-size:22px;background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.12);box-shadow:0 16px 38px rgba(0,0,0,.36);backdrop-filter:blur(18px);transition:.28s var(--ease2)}
+.desktopIcon button:hover{transform:translateY(-8px) scale(1.09);border-color:rgba(151,193,255,.45);box-shadow:0 28px 60px rgba(0,0,0,.5)}
+.desktopIcon span{font-size:8px;text-shadow:0 2px 8px rgba(0,0,0,.85)}
+.d1{top:5%;right:2.7%}.d2{top:19%;right:2.7%}.d3{top:33%;right:2.7%}.d4{top:47%;right:2.7%}.d5{top:61%;right:2.7%}
+.heroMain{padding-left:74px;padding-right:105px}
+.heroMain:before{content:"";position:absolute;left:8%;right:8%;top:17%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent)}
+.heroMain:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 27%,rgba(255,255,255,.055),transparent 28%);pointer-events:none}
+.heroCopy{max-width:790px}
+.liveBar{display:flex;align-items:center;gap:8px;margin-top:20px;font:8px "DM Mono";color:#717b87}
+.liveBar .pulse{width:6px;height:6px;border-radius:50%;background:var(--mint);box-shadow:0 0 16px var(--mint);animation:pulse2 1.5s ease-in-out infinite}
+@keyframes pulse2{50%{transform:scale(1.5);opacity:.42}}
+.appHint{position:absolute;left:74px;bottom:27px;color:#616b78;font:8px "DM Mono";letter-spacing:.08em}
+.window{box-shadow:0 50px 160px rgba(0,0,0,.72),var(--glow);transform:translateY(28px) scale(.95)}
+.window.show{animation:winIn2 .55s var(--ease2)}
+@keyframes winIn2{0%{opacity:0;transform:translateY(30px) scale(.94) rotateX(4deg)}70%{opacity:1;transform:translateY(-2px) scale(1.006)}100%{opacity:1;transform:none}}
+.window.min{animation:genie2 .44s var(--ease2)}
+@keyframes genie2{100%{opacity:0;transform:translate(var(--dx,0),68vh) scaleX(.17) scaleY(.12);filter:blur(10px)}}
+.window .chrome{cursor:grab}.window .chrome:active{cursor:grabbing}
+#launchpad{position:fixed;inset:0;z-index:100;opacity:0;pointer-events:none;transition:.35s var(--ease2);background:rgba(6,8,12,.54);backdrop-filter:blur(25px)}
+#launchpad.open{opacity:1;pointer-events:auto}
+.launchInner{width:min(980px,92vw);margin:10vh auto 0}
+.launchTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.launchTop h2{font-family:"Space Grotesk";font-size:37px;letter-spacing:-.05em;margin:0}
+.launchTop span{font:8px "DM Mono";color:#68717d}
+.launchGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.launchItem{padding:18px 10px;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);text-align:center;transition:.2s}
+.launchItem:hover{transform:translateY(-8px) scale(1.03);background:rgba(255,255,255,.07);border-color:rgba(152,192,255,.3)}
+.launchIcon{width:50px;height:50px;margin:0 auto 10px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#edf3ff,#7f9fff);color:#080b12;font-size:22px}
+.launchItem b{display:block;font-size:9px}.launchItem small{display:block;margin-top:4px;color:#69737f;font-size:7px}
+#control2{position:fixed;right:15px;top:39px;z-index:110;width:320px;padding:12px;border:1px solid rgba(255,255,255,.11);background:rgba(14,17,23,.86);backdrop-filter:blur(28px);border-radius:18px;box-shadow:0 30px 100px rgba(0,0,0,.6);opacity:0;pointer-events:none;transform:translateY(-9px) scale(.97);transition:.25s var(--ease2)}
+#control2.show{opacity:1;pointer-events:auto}
+.controlGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.controlTile{padding:12px;border-radius:13px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03)}
+.controlTile b{font-size:9px}.controlTile span{display:block;margin-top:5px;color:#6d7783;font-size:7px}
+@media(max-width:850px){.desktopIcon{display:none}.launchGrid{grid-template-columns:repeat(3,1fr)}.heroMain{padding-left:28px;padding-right:28px}.appHint{left:28px}}
+@media(max-width:560px){.launchGrid{grid-template-columns:repeat(2,1fr)}#control2{left:10px;right:10px;width:auto}}
 </style>
 </head>
 <body><div id="cursor"></div><div id="grain"></div>
@@ -75,7 +116,14 @@ body:before{animation:ambient 15s ease-in-out infinite alternate}
   <div class="right"><span class="dot"></span><span>Open for freelance</span><button onclick="openSearch()">⌕</button></div>
 </div>
 
-<div id="app">
+
+<div id="desktopApps">
+  <div class="desktopIcon d1"><button onclick="openWindow('work')">▣</button><span>Selected Work</span></div>
+  <div class="desktopIcon d2"><button onclick="openWindow('services')">✦</button><span>Services</span></div>
+  <div class="desktopIcon d3"><button onclick="openWindow('about')">◎</button><span>Profile</span></div>
+  <div class="desktopIcon d4"><button onclick="openWindow('contact')">↗</button><span>Inquiry</span></div>
+  <div class="desktopIcon d5"><button onclick="toggleLaunchpad()">⌘</button><span>Launchpad</span></div>
+</div><div id="app">
   <section id="home" class="window"><div class="bar"><div class="traffic"><span class="red"></span><span class="yellow"></span><span class="green"></span></div><div class="title">Saket — Portfolio OS</div><div class="bar-right"><span class="chip">⌘K Search</span><span class="chip">07 projects</span></div></div>
     <div class="home">
       <aside class="side"><div class="who"><span class="avatar">SD</span><div><b>SAKET DANDEKAR</b><small>Digital Marketing & Growth Analyst</small></div></div>
@@ -152,5 +200,35 @@ function sendMail(e){e.preventDefault();const subject=encodeURIComponent('Freela
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch()}if(e.key==='Escape'){document.getElementById('search').classList.add('hide');closeModal()}})
 renderProjects();renderCerts();
 </script>
-</body>
+
+<script>
+function toggleLaunchpad(){document.getElementById('launchpad').classList.toggle('open')}
+function toggleControl2(){document.getElementById('control2').classList.toggle('show')}
+(function(){
+  let drag=null;
+  document.querySelectorAll('.window .chrome').forEach(bar=>{
+    bar.addEventListener('pointerdown',e=>{
+      if(e.target.closest('button'))return;
+      const w=bar.parentElement,r=w.getBoundingClientRect();
+      drag={w,x:e.clientX,y:e.clientY,l:r.left,t:r.top};
+      bar.setPointerCapture(e.pointerId)
+    });
+    bar.addEventListener('pointermove',e=>{
+      if(!drag||drag.w!==bar.parentElement)return;
+      drag.w.style.left=(drag.l+e.clientX-drag.x)+'px';
+      drag.w.style.top=(drag.t+e.clientY-drag.y)+'px';
+      drag.w.style.right='auto';drag.w.style.bottom='auto'
+    });
+    bar.addEventListener('pointerup',()=>drag=null);
+    bar.addEventListener('pointercancel',()=>drag=null)
+  })
+})();
+document.addEventListener('keydown',e=>{
+  if(e.key==='F4')toggleLaunchpad();
+  if(e.key==='Escape'){
+    document.getElementById('launchpad').classList.remove('open');
+    document.getElementById('control2').classList.remove('show')
+  }
+});
+</script></body>
 </html>

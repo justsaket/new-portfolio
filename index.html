@@ -107,23 +107,34 @@ body{background:#05070b}
 .controlTile b{font-size:9px}.controlTile span{display:block;margin-top:5px;color:#6d7783;font-size:7px}
 @media(max-width:850px){.desktopIcon{display:none}.launchGrid{grid-template-columns:repeat(3,1fr)}.heroMain{padding-left:28px;padding-right:28px}.appHint{left:28px}}
 @media(max-width:560px){.launchGrid{grid-template-columns:repeat(2,1fr)}#control2{left:10px;right:10px;width:auto}}
+
+/* Creative Studio */
+.creative-window-body{height:calc(100% - 56px);display:grid;grid-template-columns:205px 1fr}
+.creative-side{padding:20px 12px;border-right:1px solid var(--line)}
+.creative-side .label{padding-left:10px}.creative-filter{width:100%;padding:9px;border-radius:9px;color:#929ca8;text-align:left;font-size:11px;margin-top:4px}.creative-filter.active,.creative-filter:hover{background:rgba(255,255,255,.05);color:#edf2f8}
+.creative-main{padding:28px;overflow:auto}
+.creative-hero{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:18px}.creative-hero h2{font-size:38px;line-height:1;letter-spacing:-.05em;margin:7px 0 0}.creative-hero p{max-width:540px;color:#7f8997;font-size:10px;line-height:1.65;margin:0}
+.creative-actions{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.creative-actions a{padding:8px 10px;border:1px solid var(--line);border-radius:9px;font-size:9px;background:rgba(255,255,255,.03)}
+.creative-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.creative-card{border:1px solid rgba(255,255,255,.085);background:linear-gradient(150deg,rgba(255,255,255,.042),rgba(255,255,255,.018));border-radius:16px;overflow:hidden;transition:.25s;cursor:pointer}
+.creative-card:hover{transform:translateY(-5px);border-color:rgba(140,180,255,.35);box-shadow:0 20px 55px rgba(0,0,0,.35)}
+.creative-thumb{height:185px;background-image:url('assets/creative-sprite.webp');background-size:300% 300%;background-repeat:no-repeat}
+.creative-card-body{padding:13px}.creative-card-body b{font-size:14px}.creative-card-body small{display:block;color:#6f7a88;font-size:8px;margin-top:4px}.creative-card-body p{font-size:9px;line-height:1.55;color:#838e9a;margin:8px 0 0;min-height:42px}
+.creative-lb{position:fixed;inset:0;z-index:140;background:rgba(0,0,0,.66);backdrop-filter:blur(16px);display:grid;place-items:center}.creative-lb.hide{display:none}.creative-lb-box{width:min(1080px,94vw);padding:14px;border:1px solid rgba(255,255,255,.16);border-radius:20px;background:#0d1118;box-shadow:0 45px 140px rgba(0,0,0,.7)}.creative-lb-meta{display:flex;justify-content:space-between;align-items:center;padding:4px 2px 12px}.creative-lb-meta b{font-size:12px}.creative-lb-meta span{font:8px "DM Mono";color:#737e8b}.creative-lb-stage{width:100%;aspect-ratio:4/3;border-radius:13px;background-image:url('assets/creative-sprite.webp');background-size:300% 300%;background-repeat:no-repeat;border:1px solid var(--line)}
+@media(max-width:1050px){.creative-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.creative-window-body{grid-template-columns:1fr}.creative-side{display:flex;overflow:auto;border-right:0;border-bottom:1px solid var(--line);gap:6px;padding:12px}.creative-side .label{display:none}.creative-filter{width:auto;white-space:nowrap}.creative-main{padding:20px}.creative-grid{grid-template-columns:1fr}.creative-thumb{height:220px}.creative-hero{display:block}.creative-hero p{margin-top:10px}}
+
 </style>
 </head>
 <body><div id="cursor"></div><div id="grain"></div>
 <div class="top">
-  <div class="left"><button class="brand" onclick="openWin('home')">SD</button><button onclick="openWin('projects')">Work</button><button onclick="openWin('services')">Services</button><button onclick="openWin('credentials')">Credentials</button><button onclick="openWin('contact')">Contact</button></div>
+  <div class="left"><button class="brand" onclick="openWin('home')">SD</button><button onclick="openWin('projects')">Work</button><button onclick="openWin('creative')">Design</button><button onclick="openWin('services')">Services</button><button onclick="openWin('credentials')">Credentials</button><button onclick="openWin('contact')">Contact</button></div>
   <div class="center" id="topTitle">Saket — Portfolio OS</div>
   <div class="right"><span class="dot"></span><span>Open for freelance</span><button onclick="openSearch()">⌕</button></div>
 </div>
 
 
-<div id="desktopApps">
-  <div class="desktopIcon d1"><button onclick="openWindow('work')">▣</button><span>Selected Work</span></div>
-  <div class="desktopIcon d2"><button onclick="openWindow('services')">✦</button><span>Services</span></div>
-  <div class="desktopIcon d3"><button onclick="openWindow('about')">◎</button><span>Profile</span></div>
-  <div class="desktopIcon d4"><button onclick="openWindow('contact')">↗</button><span>Inquiry</span></div>
-  <div class="desktopIcon d5"><button onclick="toggleLaunchpad()">⌘</button><span>Launchpad</span></div>
-</div><div id="app">
+<div id="desktopApps"><div class="desktopIcon d1"><button onclick="openWin('projects')">▣</button><span>Selected Work</span></div><div class="desktopIcon d2"><button onclick="openWin('creative')">✦</button><span>Design</span></div><div class="desktopIcon d3"><button onclick="openWin('credentials')">◎</button><span>Profile</span></div><div class="desktopIcon d4"><button onclick="openWin('contact')">↗</button><span>Inquiry</span></div><div class="desktopIcon d5"><button onclick="openSearch()">⌕</button><span>Search</span></div></div><div id="app">
   <section id="home" class="window"><div class="bar"><div class="traffic"><span class="red"></span><span class="yellow"></span><span class="green"></span></div><div class="title">Saket — Portfolio OS</div><div class="bar-right"><span class="chip">⌘K Search</span><span class="chip">07 projects</span></div></div>
     <div class="home">
       <aside class="side"><div class="who"><span class="avatar">SD</span><div><b>SAKET DANDEKAR</b><small>Digital Marketing & Growth Analyst</small></div></div>
@@ -136,7 +147,7 @@ body{background:#05070b}
   </section>
 
   <section id="projects" class="window off"><div class="bar"><div class="traffic"><span class="red"></span><span class="yellow"></span><span class="green"></span></div><div class="title">Work — Selected Projects</div><div class="bar-right"><span class="chip">7 / 7 loaded</span></div></div>
-    <div class="projects"><aside class="project-side"><div class="label">FAVORITES</div><button class="finder active" onclick="renderProjects('all')">▣ All Projects <b>07</b></button><button class="finder" onclick="renderProjects('analytics')">◈ Analytics</button><button class="finder" onclick="renderProjects('automation')">⌁ Automation</button><button class="finder" onclick="renderProjects('growth')">◉ Growth</button><div style="height:1px;background:var(--line);margin:17px 9px"></div><div class="label">PROJECT MODEL</div><div style="padding:12px 9px;color:#6b7582;font-size:9px;line-height:1.8">Question<br>↓<br>Model<br>↓<br>Dashboard<br>↓<br>Decision</div></aside>
+    <div class="projects"><aside class="project-side"><div class="label">FAVORITES</div><button class="finder active" onclick="renderProjects('all')">▣ All Projects <b>07</b></button><button class="finder" onclick="openWin('creative')">✦ Creative Studio</button><button class="finder" onclick="renderProjects('analytics')">◈ Analytics</button><button class="finder" onclick="renderProjects('automation')">⌁ Automation</button><button class="finder" onclick="renderProjects('growth')">◉ Growth</button><div style="height:1px;background:var(--line);margin:17px 9px"></div><div class="label">PROJECT MODEL</div><div style="padding:12px 9px;color:#6b7582;font-size:9px;line-height:1.8">Question<br>↓<br>Model<br>↓<br>Dashboard<br>↓<br>Decision</div></aside>
       <main class="main"><div class="section"><div><div class="label">SELECTED WORK</div><h2>Projects that explain <em>how I think.</em></h2></div><span class="count">click any project</span></div><div class="grid" id="grid"></div></main>
     </div>
   </section>
@@ -169,13 +180,64 @@ body{background:#05070b}
   </section>
 </div>
 
-<div class="dock"><button title="Home" onclick="openWin('home')">⌂</button><button title="Projects" onclick="openWin('projects')">▣</button><button title="Services" onclick="openWin('services')">✦</button><button title="Credentials" onclick="openWin('credentials')">▤</button><button title="Inquiry" onclick="openWin('contact')">↗</button><span class="divider"></span><button title="Search" onclick="openSearch()">⌕</button></div>
+
+<section id="creative" class="window off">
+  <div class="bar"><div class="traffic"><span class="red"></span><span class="yellow"></span><span class="green"></span></div><div class="title">Creative Studio — Graphic Design</div><div class="bar-right"><span class="chip">Selected visual work</span></div></div>
+  <div class="creative-window-body">
+    <aside class="creative-side">
+      <div class="label">CREATIVE ARCHIVE</div>
+      <button class="creative-filter active" data-cf="all" onclick="filterCreative('all',this)">▣ All Work</button>
+      <button class="creative-filter" data-cf="packaging" onclick="filterCreative('packaging',this)">▤ Packaging</button>
+      <button class="creative-filter" data-cf="campaign" onclick="filterCreative('campaign',this)">✦ Campaigns</button>
+      <button class="creative-filter" data-cf="branding" onclick="filterCreative('branding',this)">◎ Branding</button>
+      <button class="creative-filter" data-cf="social" onclick="filterCreative('social',this)">◉ Social</button>
+    </aside>
+    <main class="creative-main">
+      <div class="creative-hero">
+        <div><div class="label">CREATIVE STUDIO</div><h2>Graphic design, treated like a portfolio — not a dump.</h2></div>
+        <p>Product packaging, festival campaigns, product presentation and social branding from the available design archive. Each tile opens into a larger view.</p>
+      </div>
+      <div class="creative-actions">
+        <a href="https://drive.google.com/drive/folders/158EhPqMiCwT8OOZFJHC-UC4k-ACSL-T6?usp=drive_link" target="_blank">Open full Drive archive ↗</a>
+        <a href="https://github.com/justsaket/new-portfolio" target="_blank">GitHub repository ↗</a>
+      </div>
+      <div class="creative-grid" id="creativeGrid"></div>
+    </main>
+  </div>
+</section>
+
+
+<div class="dock"><button title="Home" onclick="openWin('home')">⌂</button><button title="Projects" onclick="openWin('projects')">▣</button><button title="Creative Studio" onclick="openWin('creative')">✦</button><button title="Services" onclick="openWin('services')">✦</button><button title="Credentials" onclick="openWin('credentials')">▤</button><button title="Inquiry" onclick="openWin('contact')">↗</button><span class="divider"></span><button title="Search" onclick="openSearch()">⌕</button></div>
 
 <div class="overlay hide" id="modal"><button class="closemodal" onclick="closeModal()"></button><article class="modal"><div class="bar"><div class="traffic"><span class="red"></span><span class="yellow"></span><span class="green"></span></div><div class="title" id="modalTitle">Case Study</div><div class="bar-right"><span class="chip" id="modalCat">Project</span></div></div><div class="modal-body"><div class="modal-head"><div><div class="label" id="modalKicker"></div><h2 id="modalHeadline"></h2><p id="modalQ"></p><div class="tags" id="modalTags"></div></div><div class="metric" id="metric"></div></div><div class="tabs"><button class="on" onclick="tab('overview',this)">Overview</button><button onclick="tab('process',this)">Process</button><button onclick="tab('dashboard',this)">Dashboard</button><button onclick="tab('findings',this)">Findings</button></div><div class="tabcontent" id="tabContent"></div></div></article></div>
+
+
+<div class="creative-lb hide" id="creativeLightbox">
+  <div class="creative-lb-box">
+    <div class="creative-lb-meta"><b id="creativeLbTitle"></b><div><span id="creativeLbType"></span> <button class="close" onclick="closeCreative()">ESC · CLOSE</button></div></div>
+    <div class="creative-lb-stage" id="creativeLbStage"></div>
+  </div>
+</div>
 
 <div class="search hide" id="search"><div class="searchbox"><div class="searchline"><span>⌕</span><input id="searchInput" placeholder="Search portfolio…" oninput="search(this.value)"><kbd style="font-size:8px;color:#707986;border:1px solid var(--line);padding:4px 6px;border-radius:5px">ESC</kbd></div><div class="results" id="results"></div></div></div>
 
 <script>
+
+const creativeWorks=[
+{id:'gw-premium',cat:'packaging',tile:0,title:'GreenWeld Premium Electrode Packaging',type:'PRODUCT PACKAGING',desc:'Premium industrial packaging direction built around hierarchy, product claims and technical credibility.',tags:['Packaging','Branding','Industrial']},
+{id:'gw-layout',cat:'packaging',tile:1,title:'GreenWeld Box Layout System',type:'PRINT / DIELINE',desc:'Full flat-layout artwork balancing technical specifications, warnings, product benefits and brand presence.',tags:['Packaging','Print','Information Design']},
+{id:'raksha',cat:'campaign',tile:2,title:'Raksha Bandhan — Bonds That Stay Strong',type:'FESTIVAL CAMPAIGN',desc:'Emotional storytelling translated into a welding metaphor for a strong-bond brand campaign.',tags:['Campaign','Art Direction','Advertising']},
+{id:'spark',cat:'campaign',tile:3,title:'Every Creation Starts With a Spark',type:'VISHWAKARMA PUJA',desc:'A single welding spark grows into a visual story of infrastructure, industry and creation.',tags:['Campaign','Brand Story','Composite']},
+{id:'antara',cat:'branding',tile:4,title:'Antara Edits — Channel Branding',type:'SOCIAL BRANDING',desc:'Cinematic creator identity built for entertainment shorts and a modern digital audience.',tags:['Branding','YouTube','Social']},
+{id:'janmashtami',cat:'campaign',tile:5,title:'Krishna Janmashtami — Welding Strength',type:'FESTIVAL SOCIAL',desc:'A festival composition combining cultural symbolism with a trust-and-strength industrial narrative.',tags:['Campaign','Social','Art Direction']},
+{id:'magnarc',cat:'branding',tile:6,title:'MAGNARC 6013 — Product Showcase',type:'PRODUCT VISUAL',desc:'Commercial product presentation designed to make the packaging feel cleaner, sharper and more premium.',tags:['Product','Packaging','Photoshoot']}
+];
+function tilePos(i){const x=i%3,y=Math.floor(i/3);return (x===0?'0%':x===1?'50%':'100%')+' '+(y===0?'0%':y===1?'50%':'100%')}
+function renderCreative(filter='all'){const root=document.getElementById('creativeGrid');root.innerHTML='';creativeWorks.filter(w=>filter==='all'||w.cat===filter).forEach(w=>{root.insertAdjacentHTML('beforeend','<article class="creative-card" onclick="openCreative('+w.tile+')"><div class="creative-thumb" style="background-position:'+tilePos(w.tile)+'"></div><div class="creative-card-body"><b>'+w.title+'</b><small>'+w.type+'</small><p>'+w.desc+'</p><div class="tags">'+w.tags.map(t=>'<span>'+t+'</span>').join('')+'</div></div></article>')})}
+function filterCreative(filter,btn){document.querySelectorAll('.creative-filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderCreative(filter)}
+function openCreative(tile){const w=creativeWorks.find(x=>x.tile===tile);if(!w)return;document.getElementById('creativeLbTitle').textContent=w.title;document.getElementById('creativeLbType').textContent=w.type;document.getElementById('creativeLbStage').style.backgroundPosition=tilePos(tile);document.getElementById('creativeLightbox').classList.remove('hide')}
+function closeCreative(){document.getElementById('creativeLightbox').classList.add('hide')}
+
 const projects=[
 {id:'01-retail-sales',n:'01',cat:'Analytics',title:'Retail Sales Intelligence',desc:'Revenue, profit, margin, regional and category analysis built as an executive investigation workspace.',stack:'Python • SQL • Power BI • DAX',q:'Where is revenue being generated, where is profit concentrated, and where should management investigate margin pressure?',metric:'₹66.41L',ml:'sample revenue',tags:['Revenue & Profit','Margin','Region','Category','Product'],process:['Mapped revenue, cost, profit, margin and units into a KPI layer.','Built regional/category drivers and an executive overview.','Added product profitability drill-down and a decision/measurement layer.'],findings:['South contributes ₹3.71L sample profit.','Electronics contributes ₹44.40L revenue.','West has the lowest regional profit at ₹2.72L.','The dashboard frames mix/pricing investigation rather than asserting a cause.'],code:['Revenue = SUM(RetailSales[sales])','Profit = [Revenue] - [Cost]','Margin % = DIVIDE([Profit],[Revenue])']},
 {id:'02-customer-churn',n:'02',cat:'Analytics',title:'Customer Retention Intelligence',desc:'Churn, engagement, plan and support patterns organized into a diagnostic workflow.',stack:'Python • SQL • Power BI • Retention Analytics',q:'Which customer segments show churn signals, and what behaviors should be investigated before designing retention actions?',metric:'40.0%',ml:'sample churn',tags:['Customer Base','Churn','Plan','Tenure','Support'],process:['Defined customer and churn KPIs.','Segmented by plan, tenure and engagement.','Separated descriptive evidence from causal claims.'],findings:['Basic churn is 71.4% in the supplied sample.','Standard churn is 50.0%.','Premium churn is 0.0%.','Churned customers average 5.5 support tickets and 4.5 recent logins.'],code:['Churn Rate = DIVIDE([Churned Customers],[Customers])','Avg Tenure = AVERAGE(Customers[tenure_months])','Avg Logins = AVERAGE(Customers[logins_last_30d])']},
@@ -187,7 +249,7 @@ const projects=[
 ];
 const certs=[['Google Analytics, UI/UX Basics & Power BI','Great Learning'],['AI-Powered Advertising','Google'],['Microsoft Copilot Studio','Microsoft'],['Content Marketing & SEO','HubSpot Academy'],['Digital Marketing','Simplilearn'],['Business Analytics','Mind Luster'],['Mobile App Product Management','UXCam Academy'],['Python Basics','Scaler Academy'],['WordPress Development','Edraak Academy'],['Creative Project Management','PMI India / LinkedIn Learning'],['Human Resource Management & Business Law','Saylor Academy'],['Point-of-Sale Insurance Certification','Turtlemint'],['SEBI Investor Certification Program','NISM — 48 / 50'],['AI Tools & ChatGPT Workshop','Be10X'],['AI-Powered Marketer Workshop','Semrush Academy'],['Data Science & Analytics Workshop','Workshop'],['Strategy Planning & Data Analytics Simulations','Accenture & Deloitte'],['ICAT Aptitude Test','Qualified']];
 
-function openWin(id){document.querySelectorAll('.window').forEach(w=>w.classList.add('off'));document.getElementById(id).classList.remove('off');const titles={home:'Saket — Portfolio OS',projects:'Work — Selected Projects',services:'Services — Freelance Studio',credentials:'Credentials — Professional Profile',contact:'Inquiry Desk — Start a Project'};document.getElementById('topTitle').textContent=titles[id]}
+function openWin(id){document.querySelectorAll('.window').forEach(w=>w.classList.add('off'));const el=document.getElementById(id);if(!el)return;el.classList.remove('off');const titles={home:'Saket — Portfolio OS',projects:'Work — Selected Projects',creative:'Creative Studio — Graphic Design',services:'Services — Freelance Studio',credentials:'Credentials — Professional Profile',contact:'Inquiry Desk — Start a Project'};document.getElementById('topTitle').textContent=titles[id];if(id==='creative')renderCreative()}
 function renderProjects(filter='all'){const root=document.getElementById('grid');root.innerHTML='';projects.filter(p=>filter==='all'||p.cat.toLowerCase()===filter).forEach(p=>{root.insertAdjacentHTML('beforeend',`<article class="card" onclick="openProject('${p.id}')"><div class="card-top"><span>${p.n}</span><span class="cat">${p.cat}</span></div><div class="viz"><div class="bars"><i></i><i></i><i></i><i></i><i></i></div></div><h3>${p.title}</h3><p>${p.desc}</p><div class="foot"><span class="stack">${p.stack}</span><button class="open">Open case ↗</button></div></article>`)})}
 function renderCerts(){document.getElementById('certs').innerHTML=certs.map(c=>`<div class="cert"><b>${c[0]}</b><span>${c[1]}</span></div>`).join('')}
 function openProject(id){const p=projects.find(x=>x.id===id);if(!p)return;document.getElementById('modal').classList.remove('hide');document.getElementById('modalTitle').textContent=p.n+' — '+p.title;document.getElementById('modalCat').textContent=p.cat;document.getElementById('modalKicker').textContent=p.cat+' / CASE STUDY';document.getElementById('modalHeadline').textContent=p.title;document.getElementById('modalQ').textContent=p.q;document.getElementById('modalTags').innerHTML=p.tags.map(t=>'<span>'+t+'</span>').join('');document.getElementById('metric').innerHTML='<small>'+p.ml+'</small><strong>'+p.metric+'</strong>';tab('overview',document.querySelector('.tabs button'))}
@@ -197,8 +259,8 @@ function openSearch(){document.getElementById('search').classList.remove('hide')
 function search(q){const t=(q||'').toLowerCase();const all=[...projects.map(p=>({name:p.title,type:'Project',fn:()=>openProject(p.id)})),{name:'Services',type:'Window',fn:()=>openWin('services')},{name:'Credentials',type:'Window',fn:()=>openWin('credentials')},{name:'Inquiry Desk',type:'Window',fn:()=>openWin('contact')}].filter(x=>x.name.toLowerCase().includes(t));document.getElementById('results').innerHTML=all.map((x,i)=>'<button onclick="searchPick('+i+')"><span>'+x.name+'</span><small>'+x.type+'</small></button>').join('');window._search=all}
 function searchPick(i){window._search[i].fn();document.getElementById('search').classList.add('hide')}
 function sendMail(e){e.preventDefault();const subject=encodeURIComponent('Freelance project inquiry — '+document.getElementById('service').value);const body=encodeURIComponent('Hi Saket,\n\nName: '+document.getElementById('name').value+'\nEmail: '+document.getElementById('email').value+'\nService: '+document.getElementById('service').value+'\n\nProject context:\n'+document.getElementById('message').value);location.href='mailto:b4u.iamsaket@gmail.com?subject='+subject+'&body='+body}
-document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch()}if(e.key==='Escape'){document.getElementById('search').classList.add('hide');closeModal()}})
-renderProjects();renderCerts();
+document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch()}if(e.key==='Escape'){document.getElementById('search').classList.add('hide');closeModal();closeCreative()}})
+renderProjects();renderCerts();renderCreative();
 </script>
 
 <script>

@@ -2,222 +2,155 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Saket Dandekar — Digital Marketing, Growth, Analytics, BI and Creative portfolio.">
-<title>Saket Dandekar — Portfolio</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Saket Dandekar — Digital Marketing, Growth, Analytics, Business Intelligence and Graphic Design portfolio.">
+<title>Saket Dandekar — macOS Portfolio</title>
 <style>
 :root{
-  --bg:#0b0d11;--panel:rgba(20,23,29,.86);--panel2:#171a21;--line:rgba(255,255,255,.09);
-  --text:#f7f8fb;--muted:#969eab;--dim:#666f7d;--accent:#9dbdff;--green:#77e0b4;
-  --shadow:0 30px 100px rgba(0,0,0,.46);--radius:20px;
+  --glass:rgba(18,20,26,.72);--glass2:rgba(30,33,41,.78);--line:rgba(255,255,255,.12);
+  --text:#f7f8fb;--muted:#a4a9b4;--dim:#737985;--blue:#75a9ff;--green:#69e3ad;
+  --shadow:0 42px 130px rgba(0,0,0,.55);--ease:cubic-bezier(.18,.9,.22,1)
 }
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Inter,sans-serif;background:#07090d;color:var(--text)}
-body{overflow:hidden}
-button,input{font:inherit}button{border:0;background:none;color:inherit;cursor:pointer}a{color:inherit;text-decoration:none}
-body:before{
-  content:"";position:fixed;inset:0;z-index:-2;
-  background:
-    radial-gradient(circle at 75% 8%,rgba(88,136,255,.18),transparent 30%),
-    radial-gradient(circle at 12% 86%,rgba(131,94,255,.13),transparent 27%),
-    linear-gradient(145deg,#080a0f,#0d1118 48%,#080a0f);
+html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",sans-serif;color:var(--text);background:#05070b}
+body{user-select:none}
+button,input,textarea{font:inherit}button{border:0;background:none;color:inherit;cursor:pointer}a{text-decoration:none;color:inherit}
+#boot{position:fixed;inset:0;z-index:1000;background:#000;display:grid;place-items:center;transition:opacity .55s var(--ease)}
+#boot.hide{opacity:0;pointer-events:none}
+.bootbox{text-align:center}.applemark{font-size:62px;line-height:1}.bootname{font-size:13px;font-weight:700;margin-top:18px;letter-spacing:-.02em}.bootbar{width:190px;height:4px;background:#222;border-radius:999px;margin:17px auto 0;overflow:hidden}.bootbar i{display:block;height:100%;width:0;background:#fff;border-radius:999px;animation:boot 1.6s ease forwards}@keyframes boot{to{width:100%}}
+#desktop{position:fixed;inset:0;overflow:hidden;background:#0a0d14;opacity:0;transition:opacity .55s ease}
+#desktop.ready{opacity:1}
+.wallpaper{position:absolute;inset:0;transition:background 1s ease;overflow:hidden}
+.wallpaper:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 73% 20%,rgba(89,145,255,.46),transparent 24%),radial-gradient(circle at 18% 72%,rgba(126,83,255,.42),transparent 23%),radial-gradient(circle at 52% 104%,rgba(33,183,255,.2),transparent 27%);filter:blur(18px)}
+.wallpaper:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(5,8,14,.12),rgba(3,5,9,.5))}
+.wallpaper.w2:before{background:radial-gradient(circle at 20% 22%,rgba(255,119,92,.4),transparent 25%),radial-gradient(circle at 78% 28%,rgba(255,186,73,.35),transparent 25%),radial-gradient(circle at 54% 90%,rgba(177,71,255,.35),transparent 28%)}
+.wallpaper.w3:before{background:radial-gradient(circle at 78% 15%,rgba(71,232,191,.33),transparent 25%),radial-gradient(circle at 22% 78%,rgba(61,120,255,.4),transparent 28%),radial-gradient(circle at 55% 45%,rgba(44,57,97,.38),transparent 32%)}
+.wallpaper.w4:before{background:radial-gradient(circle at 26% 18%,rgba(244,196,118,.32),transparent 25%),radial-gradient(circle at 79% 74%,rgba(90,150,255,.31),transparent 28%),radial-gradient(circle at 45% 55%,rgba(218,74,122,.24),transparent 25%)}
+.menu{position:absolute;top:0;left:0;right:0;height:31px;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 12px;background:rgba(15,17,22,.46);backdrop-filter:blur(24px);font-size:12px}
+.menu-left,.menu-right{display:flex;align-items:center;gap:10px}.menu button{padding:4px 6px;border-radius:6px}.menu button:hover{background:rgba(255,255,255,.09)}.menu-brand{font-weight:800}.menu-app{font-weight:650}.menu-right{font-size:11px;color:#e0e4ea}.battery{font-size:11px}
+.notch{position:absolute;left:50%;top:0;transform:translateX(-50%);width:210px;height:30px;z-index:260;background:#020305;border:1px solid rgba(255,255,255,.08);border-top:0;border-radius:0 0 18px 18px;overflow:hidden;transition:.5s var(--ease);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.notch.open{width:430px;height:126px;border-radius:0 0 25px 25px}.notchmini{height:29px;display:flex;align-items:center;justify-content:center;gap:7px;color:#808793;font:9px ui-monospace,monospace;cursor:pointer}.notchmini b{color:#eef2f8}.notchbody{padding:12px 14px;opacity:0;transform:translateY(-8px);transition:.25s}.notch.open .notchbody{opacity:1;transform:none}.notchrow{display:flex;justify-content:space-between;align-items:center}.notchrow strong{font-size:11px}.notchrow small{font-size:8px;color:#707985}.notchbuttons{display:flex;gap:6px;margin-top:10px}.notchbuttons button{font-size:8px;padding:7px 9px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.035)}
+.desktop-icons{position:absolute;inset:58px 14px 100px 14px;z-index:20;pointer-events:none}
+.desktop-icon{position:absolute;width:78px;text-align:center;pointer-events:auto}.desktop-icon button{width:52px;height:52px;border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.21),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.14);box-shadow:0 15px 34px rgba(0,0,0,.36);backdrop-filter:blur(18px);font-size:23px;transition:.2s}.desktop-icon button:hover{transform:translateY(-5px) scale(1.06)}.desktop-icon span{display:block;margin-top:7px;font-size:9px;text-shadow:0 2px 8px #000}
+.i1{right:18px;top:20px}.i2{right:18px;top:120px}.i3{right:18px;top:220px}.i4{right:18px;top:320px}.i5{left:18px;top:20px}
+.window{position:absolute;z-index:100;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(14,17,23,.88);backdrop-filter:blur(28px);box-shadow:var(--shadow);overflow:hidden;display:none;min-width:360px;min-height:250px}
+.window.show{display:block;animation:winin .42s var(--ease)}.window.focus{z-index:180}.window.minimizing{animation:genie .42s var(--ease)}@keyframes winin{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}@keyframes genie{from{opacity:1;transform:none}to{opacity:0;transform:translateY(75vh) scale(.18,.12);filter:blur(9px)}}
+.window.full{left:20px!important;top:50px!important;right:20px!important;bottom:86px!important;width:auto!important;height:auto!important}
+.chrome{height:48px;display:grid;grid-template-columns:90px 1fr 90px;align-items:center;padding:0 12px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.025);cursor:grab}.chrome:active{cursor:grabbing}.lights{display:flex;gap:7px}.light{width:12px;height:12px;border-radius:50%}.lr{background:#ff5f57}.ly{background:#febc2e}.lg{background:#28c840}.wtitle{text-align:center;font-size:11px;font-weight:650;color:#e1e5ec}.wtools{justify-self:end;display:flex;gap:5px}.wtools button{font-size:10px;color:#7f8895;padding:4px 6px;border-radius:7px}.wtools button:hover{background:rgba(255,255,255,.07)}
+.window-body{height:calc(100% - 48px);overflow:auto}.finder{width:780px;height:540px;left:calc(50% - 390px);top:calc(50% - 250px)}.finder-layout{display:grid;grid-template-columns:190px 1fr;height:100%}.finder-side{padding:14px;border-right:1px solid var(--line)}.group{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#6f7884;padding:8px 9px}.finder-side button{width:100%;text-align:left;padding:9px;border-radius:8px;font-size:10px;color:#9098a5}.finder-side button.active,.finder-side button:hover{background:rgba(255,255,255,.06);color:#edf1f7}.finder-main{padding:22px;overflow:auto}.finder-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}.finder-head h2{font-size:30px;letter-spacing:-.05em;margin:5px 0 0}.finder-head p{font-size:9px;color:#697381;margin:0}.appgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.app-card{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:13px;padding:12px;cursor:pointer;transition:.2s}.app-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.045)}.appicon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#2b66bd,#7b65ef);margin-bottom:10px}.app-card h3{font-size:11px;margin:0}.app-card p{font-size:8px;line-height:1.5;color:#7a8491;margin:5px 0 0}
+.homewindow{width:860px;height:590px;left:calc(50% - 430px);top:calc(50% - 290px)}.homebody{height:100%;padding:36px 48px;overflow:auto}.hero-kicker{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#7fa7e1;font-weight:800}.hero h1{font-size:63px;line-height:.92;letter-spacing:-.07em;margin:17px 0 16px;max-width:720px}.hero h1 span{background:linear-gradient(100deg,#f4f7fd,#9dbdff 55%,#c0a9ff);-webkit-background-clip:text;color:transparent}.hero p{max-width:700px;font-size:12px;line-height:1.8;color:#98a1ad}.hero-actions{display:flex;gap:8px;margin-top:20px}.hero-actions button{font-size:9px;font-weight:750;padding:10px 13px;border-radius:10px}.primary{background:#f6f8fb;color:#090b10}.ghost{border:1px solid var(--line);background:rgba(255,255,255,.035)}.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:32px}.hero-stat{padding:13px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.022)}.hero-stat b{display:block;font-size:20px}.hero-stat span{display:block;margin-top:4px;color:#6e7784;font-size:7px;text-transform:uppercase;letter-spacing:.11em}.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.hero-card{border:1px solid var(--line);border-radius:13px;padding:13px;background:rgba(255,255,255,.022)}.hero-card small{font:7px ui-monospace,monospace;color:#6e7783;text-transform:uppercase}.hero-card strong{display:block;font-size:11px;margin-top:7px}.hero-card p{font-size:9px;margin:5px 0 0;color:#7e8793;line-height:1.5}
+.projects-window{width:980px;height:610px;left:calc(50% - 490px);top:calc(50% - 300px)}.projects-body{padding:24px;overflow:auto}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}.section-head h2{font-size:30px;letter-spacing:-.05em;margin:5px 0 0}.section-head p{font-size:8px;color:#6f7783}.filters{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:13px}.filter{font-size:8px;padding:7px 9px;border:1px solid var(--line);border-radius:999px;color:#7f8894}.filter.active,.filter:hover{background:rgba(255,255,255,.065);color:#edf1f7}.workgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.workcard{border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.023);padding:12px;cursor:pointer;transition:.2s}.workcard:hover{transform:translateY(-3px);border-color:rgba(117,169,255,.3)}.mini-chart{height:74px;border-radius:10px;background:linear-gradient(145deg,#121721,#0b0f15);position:relative;overflow:hidden;margin-bottom:10px}.mini-bars{position:absolute;inset:auto 9px 9px;display:flex;align-items:end;gap:4px;height:42px}.mini-bars i{flex:1;background:linear-gradient(#94b8ff,#7660ef);border-radius:3px 3px 1px 1px}.mini-bars i:nth-child(1){height:22%}.mini-bars i:nth-child(2){height:41%}.mini-bars i:nth-child(3){height:57%}.mini-bars i:nth-child(4){height:48%}.mini-bars i:nth-child(5){height:79%}.mini-bars i:nth-child(6){height:95%}.workmeta{display:flex;justify-content:space-between;font:7px ui-monospace,monospace;color:#66717e}.workcard h3{font-size:12px;margin:7px 0 5px;line-height:1.2}.workcard p{font-size:8px;color:#7d8792;line-height:1.45;margin:0;min-height:35px}
+.creative-window{width:980px;height:620px;left:calc(50% - 490px);top:calc(50% - 305px)}.creative-body{padding:24px;overflow:auto}.creativegrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.creativecard{overflow:hidden;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.023);cursor:pointer;transition:.2s}.creativecard:hover{transform:translateY(-3px);border-color:rgba(117,169,255,.32)}.cthumb{height:170px;background-image:url("assets/creative-sprite.webp");background-size:300% 300%;background-repeat:no-repeat;background-color:#080a0e}.cbody{padding:11px}.cbody b{font-size:10px;display:block;line-height:1.25}.cbody small{display:block;margin-top:4px;color:#7ba4dc;font-size:7px;letter-spacing:.13em}.cbody p{font-size:8px;color:#7b8592;line-height:1.45;margin:6px 0}.ctags{display:flex;gap:4px;flex-wrap:wrap}.ctags span{font-size:7px;color:#868f9b;border:1px solid rgba(255,255,255,.07);border-radius:999px;padding:4px 6px}
+.about-window{width:820px;height:520px;left:calc(50% - 410px);top:calc(50% - 260px)}.aboutbody{padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:12px;overflow:auto}.about-card{border:1px solid var(--line);border-radius:13px;padding:15px;background:rgba(255,255,255,.022)}.about-card h3{font-size:13px;margin:0 0 8px}.about-card p{font-size:9px;line-height:1.65;color:#808a97}.jobs{display:grid;gap:8px}.job{border-bottom:1px solid var(--line);padding:8px 0}.job:last-child{border:0}.job small{font:7px ui-monospace,monospace;color:#737d8a}.job b{display:block;font-size:9px;margin-top:5px}.job span{display:block;color:#707a87;font-size:8px;margin-top:2px}.linkstack{display:grid;gap:7px;margin-top:12px}.linkstack a{font-size:9px;padding:10px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.025)}
+.contact-window{width:760px;height:490px;left:calc(50% - 380px);top:calc(50% - 245px)}.contactbody{padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:22px;overflow:auto}.contactbody h2{font-size:39px;line-height:.98;letter-spacing:-.06em;margin:6px 0 10px}.contactbody p{font-size:9px;color:#808a97;line-height:1.65}.contactlinks{display:grid;gap:7px;margin-top:17px}.contactlinks a{font-size:9px;padding:9px;border:1px solid var(--line);border-radius:9px}.form{display:grid;gap:9px}.form label{font-size:7px;color:#737d8a;display:grid;gap:5px}.form input,.form textarea{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:9px;color:#eef2f7;padding:9px;outline:0}.form textarea{min-height:100px;resize:vertical}
+.spotlight{position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.33);backdrop-filter:blur(12px);display:grid;place-items:start center}.spotlight.hide{display:none}.spotbox{width:min(720px,90vw);margin-top:11vh;border:1px solid rgba(255,255,255,.15);border-radius:18px;background:rgba(19,22,28,.92);box-shadow:0 35px 110px rgba(0,0,0,.65);overflow:hidden}.spotinput{display:flex;align-items:center;gap:9px;padding:14px 15px;border-bottom:1px solid var(--line)}.spotinput input{flex:1;background:0;border:0;outline:0;color:#f2f5f9;font-size:15px}.spotresults button{display:flex;justify-content:space-between;width:100%;padding:11px 15px;font-size:10px;border-bottom:1px solid rgba(255,255,255,.04);text-align:left}.spotresults button:hover{background:rgba(255,255,255,.05)}.spotresults small{color:#6e7885}
+.launchpad{position:fixed;inset:0;z-index:650;background:rgba(5,7,10,.8);backdrop-filter:blur(28px);display:none;padding:80px 6vw}.launchpad.open{display:block}.launchgrid{display:grid;grid-template-columns:repeat(6,minmax(60px,120px));gap:24px;justify-content:center}.launchapp{display:grid;justify-items:center;gap:8px}.launchapp button{width:68px;height:68px;border-radius:20px;background:linear-gradient(145deg,#2d5fb6,#7d61ef);font-size:29px;box-shadow:0 22px 45px rgba(0,0,0,.35)}.launchapp span{font-size:8px}
+.control{position:fixed;top:42px;right:14px;z-index:660;width:330px;padding:14px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(18,21,27,.88);backdrop-filter:blur(24px);box-shadow:0 30px 90px rgba(0,0,0,.55);display:none}.control.open{display:block}.controlgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.controltile{padding:12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025)}.controltile b{display:block;font-size:9px}.controltile small{display:block;color:#737d89;font-size:7px;margin-top:4px}.slider{height:6px;border-radius:99px;background:#353943;margin-top:10px;overflow:hidden}.slider i{display:block;width:65%;height:100%;background:#e4e8ef;border-radius:99px}
+.siri{position:fixed;right:20px;bottom:86px;z-index:690;width:330px;padding:14px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(12,15,20,.84);backdrop-filter:blur(25px);box-shadow:0 30px 100px rgba(0,0,0,.65);display:none}.siri.open{display:block}.siritop{display:flex;gap:9px;align-items:center}.orb{width:31px;height:31px;border-radius:50%;background:conic-gradient(#78c9ff,#a87cff,#5be7b4,#78c9ff);box-shadow:0 0 30px rgba(120,180,255,.35)}.siri strong{font-size:10px}.siri small{display:block;color:#65707d;font-size:7px;margin-top:2px}.siribody{font-size:9px;color:#929ca8;line-height:1.6;margin:11px 0}.siribtns{display:flex;gap:5px}.siribtns button{font-size:8px;padding:7px 8px;border:1px solid var(--line);border-radius:8px}
+.dock{position:absolute;left:50%;bottom:13px;transform:translateX(-50%);z-index:500;display:flex;align-items:end;gap:5px;padding:7px 8px;border:1px solid rgba(255,255,255,.15);border-radius:19px;background:rgba(19,22,28,.58);backdrop-filter:blur(24px);box-shadow:0 18px 60px rgba(0,0,0,.42)}.dock button{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:20px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.09);transition:transform .18s var(--ease),margin .18s var(--ease)}.dock button:hover{transform:translateY(-12px) scale(1.2);margin:0 7px}.dock .sep{width:1px;height:35px;background:var(--line);margin:0 2px}
+.case-modal,.creative-modal{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.63);backdrop-filter:blur(11px);display:grid;place-items:center;padding:20px}.case-modal.hide,.creative-modal.hide{display:none}.casebox{width:min(900px,93vw);max-height:84vh;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:#101319;overflow:auto;box-shadow:0 40px 120px rgba(0,0,0,.7)}.casehead{display:flex;justify-content:space-between;align-items:center;padding:13px 15px;border-bottom:1px solid var(--line)}.casehead b{font-size:10px}.casebody{padding:24px}.casebody h2{font-size:39px;line-height:1;letter-spacing:-.06em;margin:6px 0 10px}.casebody p{font-size:9px;color:#838d9a;line-height:1.7}.casegrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}.casecard{border:1px solid var(--line);border-radius:12px;padding:13px;background:rgba(255,255,255,.025)}.casecard small{color:#6e7885;font-size:7px;text-transform:uppercase;letter-spacing:.12em}.casecard b{display:block;font-size:18px;margin-top:6px}.casecard ul{margin:8px 0 0;padding-left:16px}.casecard li{font-size:8px;color:#838d99;line-height:1.55;margin:4px 0}.creative-modal .casebox{background:#0d1015}.creative-large{height:min(72vh,720px);background-image:url("assets/creative-sprite.webp");background-size:300% 300%;background-repeat:no-repeat;background-color:#07090d}
+#cursor{position:fixed;left:0;top:0;width:11px;height:11px;border:1px solid rgba(255,255,255,.8);border-radius:50%;transform:translate(-50%,-50%);z-index:9999;pointer-events:none;mix-blend-mode:difference;transition:width .15s,height .15s}.cursor-big{width:34px!important;height:34px!important;background:rgba(255,255,255,.08)}
+@media(max-width:850px){
+  body{overflow:hidden}.menu{height:30px}.desktop-icons{display:none}.notch{width:180px}.notch.open{width:92vw}.homewindow,.projects-window,.creative-window,.about-window,.contact-window,.finder{left:4vw;top:45px;width:92vw;height:calc(100vh - 120px)}
+  .window.full{left:4vw!important;right:4vw!important;top:45px!important;bottom:76px!important}.chrome{grid-template-columns:70px 1fr 70px}.finder-layout{grid-template-columns:1fr}.finder-side{display:none}.appgrid,.workgrid,.creativegrid{grid-template-columns:1fr 1fr}.homebody{padding:28px 22px}.hero h1{font-size:44px}.hero-stats{grid-template-columns:1fr 1fr}.hero-grid,.aboutbody,.contactbody,.casegrid{grid-template-columns:1fr}.launchpad{padding:70px 20px}.launchgrid{grid-template-columns:repeat(4,1fr);gap:18px}.dock button{width:42px;height:42px;font-size:17px}.dock{bottom:9px}.control{right:10px;width:min(330px,calc(100vw - 20px))}
 }
-body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.026;background-image:radial-gradient(rgba(255,255,255,.8) .7px,transparent .7px);background-size:4px 4px}
-.topbar{height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:rgba(10,12,16,.72);backdrop-filter:blur(22px);border-bottom:1px solid rgba(255,255,255,.06);font-size:12px;position:fixed;top:0;left:0;right:0;z-index:50}
-.top-left,.top-right{display:flex;align-items:center;gap:6px}.brand{font-weight:800;letter-spacing:-.04em}.status{color:#86909d;font-size:10px}.live{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(119,224,180,.7)}
-.desktop{position:fixed;inset:34px 0 0;padding:34px 3vw 90px;display:grid;place-items:center}
-.shell{width:min(1220px,94vw);height:min(760px,calc(100vh - 140px));min-height:590px;border:1px solid var(--line);border-radius:24px;background:rgba(16,19,25,.78);backdrop-filter:blur(28px);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:220px 1fr;animation:enter .55s cubic-bezier(.2,.8,.2,1)}
-@keyframes enter{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
-.sidebar{padding:22px 14px;border-right:1px solid var(--line);display:flex;flex-direction:column}
-.profile{display:flex;align-items:center;gap:10px;padding:8px 8px 20px}.avatar{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#edf3ff,#9cbcff);color:#101522;font-size:12px;font-weight:900}
-.profile b{display:block;font-size:11px}.profile small{display:block;color:var(--dim);font-size:9px;margin-top:3px}
-.nav-title{padding:10px 10px 6px;color:#68717f;font-size:8px;letter-spacing:.17em;text-transform:uppercase;font-weight:800}
-.nav{display:grid;gap:3px}.nav button{width:100%;text-align:left;padding:10px 11px;border-radius:10px;color:#949daa;font-size:11px;display:flex;gap:9px;align-items:center}.nav button:hover,.nav button.active{background:rgba(255,255,255,.055);color:#f0f4fa}
-.side-bottom{margin-top:auto;padding:10px}.available{border:1px solid rgba(119,224,180,.16);background:rgba(119,224,180,.045);padding:11px;border-radius:12px}.available b{font-size:9px}.available span{display:block;color:#68717f;font-size:8px;margin-top:4px;line-height:1.5}
-.content{min-width:0;display:flex;flex-direction:column}.windowbar{height:54px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 15px}.traffic{display:flex;gap:7px}.traffic i{width:12px;height:12px;border-radius:50%;display:block}.r{background:#ff5f57}.y{background:#febc2e}.g{background:#28c840}.windowtitle{font-size:12px;font-weight:700;color:#d9dee7}.windowright{justify-self:end;display:flex;align-items:center;gap:8px}.pill{font-size:8px;color:#7e8794;border:1px solid var(--line);padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.025)}
-.view{display:none;min-width:0;overflow:auto;height:calc(100% - 54px)}.view.active{display:block}
-.home{padding:58px 58px 40px}.eyebrow{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#83a6d8;font-weight:800}.home h1{font-size:clamp(50px,6vw,78px);line-height:.94;letter-spacing:-.065em;margin:16px 0 18px;max-width:760px}.home h1 span{background:linear-gradient(100deg,#f4f7ff,#9dbbff 55%,#c0a9ff);-webkit-background-clip:text;color:transparent}.home p{max-width:700px;color:var(--muted);font-size:13px;line-height:1.8;margin:0}.actions{display:flex;gap:9px;margin-top:25px}.btn{padding:11px 14px;border-radius:11px;font-size:10px;font-weight:800}.btn.primary{background:#f5f7fb;color:#0b0d11}.btn.secondary{border:1px solid var(--line);background:rgba(255,255,255,.03)}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(90px,120px));gap:10px;margin-top:42px}.stat{padding-top:17px;border-top:1px solid var(--line)}.stat b{display:block;font-size:21px;letter-spacing:-.03em}.stat span{display:block;margin-top:4px;color:#68717f;font-size:8px;text-transform:uppercase;letter-spacing:.11em}
-.aboutline{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.aboutcard{border:1px solid var(--line);border-radius:15px;padding:16px;background:rgba(255,255,255,.025)}.aboutcard small{color:#6c7683;font:8px ui-monospace,monospace;text-transform:uppercase}.aboutcard b{display:block;margin-top:8px;font-size:13px}.aboutcard p{font-size:10px;line-height:1.6;margin-top:7px;color:#7f8997}
-.sectionpad{padding:28px 30px 34px}.sectionhead{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:18px}.sectionhead h2{font-size:34px;letter-spacing:-.055em;margin:6px 0 0}.sectionhead p{color:#737d8a;font-size:9px;margin:0}.filters{display:flex;gap:5px;flex-wrap:wrap}.filter{font-size:8px;padding:7px 9px;border:1px solid var(--line);border-radius:999px;color:#737d8a}.filter.active,.filter:hover{background:rgba(255,255,255,.06);color:#ecf1f8}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:16px;padding:15px;cursor:pointer;transition:.24s}.card:hover{transform:translateY(-4px);border-color:rgba(157,189,255,.28);box-shadow:0 20px 55px rgba(0,0,0,.3)}.cardtop{display:flex;justify-content:space-between;color:#606a78;font:8px ui-monospace,monospace}.cardtop strong{color:#82a6d8}.fakechart{height:92px;margin:13px 0;border-radius:11px;background:linear-gradient(145deg,#121721,#0b0f15);position:relative;overflow:hidden}.fakechart:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 0 37%,rgba(157,189,255,.15) 38%,transparent 39% 60%,rgba(192,169,255,.1) 61%,transparent 62%)}.bars{position:absolute;left:13px;right:13px;bottom:12px;height:46px;display:flex;gap:6px;align-items:end}.bars i{flex:1;border-radius:4px 4px 1px 1px;background:linear-gradient(#9ebdff,#806bff);opacity:.72}.bars i:nth-child(1){height:26%}.bars i:nth-child(2){height:40%}.bars i:nth-child(3){height:62%}.bars i:nth-child(4){height:52%}.bars i:nth-child(5){height:82%}.bars i:nth-child(6){height:95%}.card h3{font-size:16px;letter-spacing:-.03em;margin:0 0 6px}.card p{font-size:9px;color:#7e8896;line-height:1.55;min-height:43px;margin:0}.cardfoot{display:flex;justify-content:space-between;align-items:center;margin-top:11px}.stack{font-size:8px;color:#5d6774;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:78%}.openbtn{font-size:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.05)}
-.creativeintro{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:16px}.creativeintro p{max-width:550px}.creative-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.creative-card{overflow:hidden;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025);cursor:pointer;transition:.24s}.creative-card:hover{transform:translateY(-4px);border-color:rgba(157,189,255,.3)}.creative-thumb{height:175px;background-image:url("assets/creative-sprite.webp");background-size:300% 300%;background-repeat:no-repeat}.creative-card-body{padding:14px}.creative-card-body b{font-size:12px;line-height:1.25;display:block}.creative-card-body small{display:block;margin-top:5px;color:#81a2ce;font-size:7px;letter-spacing:.13em}.creative-card-body p{font-size:9px;line-height:1.5;color:#7f8996;margin:9px 0}.tags{display:flex;flex-wrap:wrap;gap:4px}.tag{font-size:7px;color:#8b94a0;border:1px solid rgba(255,255,255,.07);padding:5px 7px;border-radius:999px}
-.profileview{padding:36px;display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.info-card{border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.025);padding:20px}.info-card h3{font-size:14px;margin:0 0 10px}.info-card p{font-size:10px;line-height:1.7;color:#7e8896}.timeline{display:grid;gap:10px}.job{padding:12px 0;border-bottom:1px solid var(--line)}.job:last-child{border-bottom:0}.job small{font:8px ui-monospace,monospace;color:#707a88}.job b{display:block;font-size:10px;margin-top:6px}.job span{display:block;color:#727c89;font-size:8px;margin-top:3px}
-.contactview{padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:30px}.contactview h2{font-size:48px;line-height:1;letter-spacing:-.06em;margin:8px 0 14px}.contactview p{color:#838d99;font-size:11px;line-height:1.7}.contactlinks{margin-top:24px;display:grid;gap:8px}.contactlinks a{padding:12px 14px;border:1px solid var(--line);border-radius:11px;font-size:10px;background:rgba(255,255,255,.025)}
-.form{display:grid;gap:11px}.form label{font-size:8px;color:#7b8592;display:grid;gap:6px}.form input,.form textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025);color:#f1f4f9;padding:10px 11px;outline:0}.form textarea{min-height:130px;resize:vertical}
-.dock{position:fixed;left:50%;bottom:15px;transform:translateX(-50%);z-index:70;display:flex;gap:5px;padding:7px;border:1px solid rgba(255,255,255,.11);border-radius:17px;background:rgba(17,20,26,.74);backdrop-filter:blur(22px);box-shadow:0 18px 55px rgba(0,0,0,.4)}.dock button{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:18px;transition:.2s}.dock button:hover{transform:translateY(-5px) scale(1.04);background:rgba(255,255,255,.07)}
-.search{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.48);backdrop-filter:blur(9px);display:grid;place-items:start center}.search.hide{display:none}.searchbox{width:min(720px,92vw);margin-top:11vh;background:rgba(18,21,27,.96);border:1px solid rgba(255,255,255,.14);border-radius:17px;overflow:hidden;box-shadow:0 35px 120px rgba(0,0,0,.65)}.searchinput{display:flex;align-items:center;gap:9px;padding:14px;border-bottom:1px solid var(--line)}.searchinput input{flex:1;background:0;border:0;outline:0;color:#f4f6fb;font-size:14px}.results button{width:100%;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;font-size:10px;text-align:left}.results button:hover{background:rgba(255,255,255,.045)}.results small{color:#697381}
-.modal{position:fixed;inset:0;z-index:110;background:rgba(0,0,0,.6);backdrop-filter:blur(10px);display:grid;place-items:center;padding:30px}.modal.hide{display:none}.modalbox{width:min(840px,94vw);max-height:82vh;overflow:auto;border:1px solid rgba(255,255,255,.13);border-radius:19px;background:#11141a;box-shadow:0 40px 130px rgba(0,0,0,.65)}.modalbar{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;border-bottom:1px solid var(--line)}.modalbar b{font-size:11px}.close{font-size:9px;padding:6px 8px;border:1px solid var(--line);border-radius:8px}.modalbody{padding:28px}.modalbody h2{font-size:38px;line-height:1;letter-spacing:-.055em;margin:7px 0 12px}.modalbody p{color:#87919e;font-size:10px;line-height:1.7}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.modalcard{border:1px solid var(--line);border-radius:13px;padding:14px;background:rgba(255,255,255,.025)}.modalcard small{display:block;color:#707a87;font-size:7px;text-transform:uppercase;letter-spacing:.12em}.modalcard b{display:block;font-size:19px;margin-top:7px}.modalcard ul{padding-left:17px;margin:9px 0 0}.modalcard li{font-size:9px;color:#838d99;line-height:1.55;margin:4px 0}
-.lightbox{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.82);display:grid;place-items:center;padding:25px}.lightbox.hide{display:none}.lb{width:min(1100px,95vw);max-height:92vh;overflow:auto;border:1px solid rgba(255,255,255,.14);border-radius:19px;background:#0e1116}.lbhead{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.lbhead b{font-size:11px}.lbimg{height:min(74vh,720px);background-image:url("assets/creative-sprite.webp");background-size:300% 300%;background-repeat:no-repeat;background-color:#080a0e}
-@media(max-width:980px){.shell{grid-template-columns:180px 1fr}.grid,.creative-grid{grid-template-columns:1fr 1fr}.home{padding:42px}.profileview{grid-template-columns:1fr}.contactview{grid-template-columns:1fr}}
-@media(max-width:700px){body{overflow:auto}.desktop{position:relative;inset:auto;padding:48px 10px 85px;min-height:100vh}.shell{width:100%;height:auto;min-height:calc(100vh - 130px);grid-template-columns:1fr;border-radius:18px}.sidebar{border-right:0;border-bottom:1px solid var(--line);padding:12px}.profile{padding:5px 8px 12px}.nav{grid-template-columns:repeat(4,1fr)}.nav-title,.side-bottom{display:none}.nav button{justify-content:center;padding:9px 5px;font-size:9px}.nav button span{display:none}.windowbar{grid-template-columns:auto 1fr auto}.windowright{display:none}.home{padding:32px 20px}.home h1{font-size:45px}.stats{grid-template-columns:1fr 1fr;margin-top:32px}.aboutline{grid-template-columns:1fr}.sectionpad{padding:22px 16px}.grid,.creative-grid{grid-template-columns:1fr}.creative-thumb{height:210px}.contactview{padding:30px 20px}.contactview h2{font-size:42px}.modal{padding:12px}.modalgrid{grid-template-columns:1fr}.dock{bottom:10px}}
 </style>
 </head>
 <body>
-<header class="topbar">
-  <div class="top-left"><span class="brand">Saket</span><span class="status">Portfolio</span></div>
-  <div class="top-right"><span class="live"></span><span class="status">Available for projects</span><button onclick="openSearch()" aria-label="Search">⌕</button></div>
-</header>
+<div id="boot"><div class="bootbox"><div class="applemark"></div><div class="bootname">Saket Dandekar</div><div class="bootbar"><i></i></div></div></div>
 
-<main class="desktop">
-  <section class="shell">
-    <aside class="sidebar">
-      <div class="profile">
-        <div class="avatar">SD</div>
-        <div><b>Saket Dandekar</b><small>Digital • Data • Creative</small></div>
+<div id="desktop">
+  <div class="wallpaper w1" id="wallpaper"></div>
+
+  <div class="menu">
+    <div class="menu-left">
+      <button class="menu-brand" onclick="toggleApple()"></button>
+      <span class="menu-app" id="menuApp">Finder</span>
+      <button onclick="openFinder()">File</button><button onclick="openFinder()">Edit</button><button onclick="openFinder()">View</button><button onclick="openFinder()">Window</button>
+    </div>
+    <div class="menu-right">
+      <button onclick="toggleControl()">◐</button><span>⌁ 92%</span><span>▮</span><span id="clock">--:--</span>
+    </div>
+  </div>
+
+  <div class="notch" id="notch">
+    <div class="notchmini" onclick="toggleNotch()"><span>●</span><b>Saket</b><span>Portfolio OS</span></div>
+    <div class="notchbody">
+      <div class="notchrow"><strong>Now exploring</strong><small id="notchPage">Home</small></div>
+      <div class="notchbuttons">
+        <button onclick="openFinder()">⌁ Finder</button><button onclick="openWork()">▣ Analytics</button><button onclick="openCreative()">✦ Design</button><button onclick="toggleSiri()">◉ Siri</button>
       </div>
-      <div class="nav-title">Explore</div>
-      <nav class="nav">
-        <button class="active" onclick="showView('home',this)">⌂ <span>Home</span></button>
-        <button onclick="showView('work',this)">▣ <span>Analytics</span></button>
-        <button onclick="showView('creative',this)">✦ <span>Design</span></button>
-        <button onclick="showView('profile',this)">◉ <span>About</span></button>
-      </nav>
-      <div class="side-bottom">
-        <div class="available"><b>Open to work</b><span>Digital marketing • Analytics • Creative projects</span></div>
+    </div>
+  </div>
+
+  <div class="desktop-icons">
+    <div class="desktop-icon i1"><button onclick="openFinder()">⌁</button><span>Finder</span></div>
+    <div class="desktop-icon i2"><button onclick="openWork()">▣</button><span>Analytics</span></div>
+    <div class="desktop-icon i3"><button onclick="openCreative()">✦</button><span>Design</span></div>
+    <div class="desktop-icon i4"><button onclick="openAbout()">◉</button><span>About Me</span></div>
+    <div class="desktop-icon i5"><button onclick="openContact()">↗</button><span>Contact</span></div>
+  </div>
+
+  <section class="window homewindow show focus" id="winHome" data-app="Saket">
+    <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winHome')"></i><i class="light ly" onclick="minimizeWindow('winHome')"></i><i class="light lg" onclick="toggleMax('winHome')"></i></div><div class="wtitle">Saket — Portfolio</div><div class="wtools"><button onclick="toggleMax('winHome')">↗</button></div></div>
+    <div class="window-body homebody">
+      <div class="hero">
+        <div class="hero-kicker">Digital Marketing • Growth • Analytics • Creative</div>
+        <h1>I build <span>work that looks sharp</span> and thinks in data.</h1>
+        <p>I’m Saket — a digital marketing and growth analyst working across business intelligence, automation, social content, branding and performance-focused creative.</p>
+        <div class="hero-actions"><button class="primary" onclick="openWork()">View my analytics</button><button class="ghost" onclick="openCreative()">Open Creative Studio</button></div>
+        <div class="hero-stats"><div class="hero-stat"><b>4+</b><span>Core domains</span></div><div class="hero-stat"><b>7</b><span>Analytics cases</span></div><div class="hero-stat"><b>7+</b><span>Design works</span></div><div class="hero-stat"><b>∞</b><span>Curiosity</span></div></div>
+        <div class="hero-grid"><div class="hero-card"><small>What I solve</small><strong>Messy business problems → clear systems</strong><p>Dashboards, automation workflows, growth analysis and practical creative direction.</p></div><div class="hero-card"><small>How I work</small><strong>Minimal interface. Strong visual hierarchy.</strong><p>The portfolio behaves like a product while keeping the work easy to explore.</p></div></div>
       </div>
-    </aside>
-
-    <div class="content">
-      <div class="windowbar">
-        <div class="traffic"><i class="r"></i><i class="y"></i><i class="g"></i></div>
-        <div class="windowtitle" id="windowTitle">Saket — Home</div>
-        <div class="windowright"><span class="pill">⌘ K</span></div>
-      </div>
-
-      <section id="home" class="view active">
-        <div class="home">
-          <div class="eyebrow">Digital Marketing • Growth • Analytics • Creative</div>
-          <h1>I build <span>work that looks sharp</span> and thinks in data.</h1>
-          <p>I’m Saket — a digital marketing and growth analyst who works across business intelligence, automation, branding, social content and performance-focused creative.</p>
-          <div class="actions">
-            <button class="btn primary" onclick="showView('work')">View analytics work ↗</button>
-            <button class="btn secondary" onclick="showView('creative')">Open creative studio</button>
-          </div>
-          <div class="stats">
-            <div class="stat"><b>4+</b><span>Core domains</span></div>
-            <div class="stat"><b>7</b><span>Analytics case studies</span></div>
-            <div class="stat"><b>7+</b><span>Featured design works</span></div>
-            <div class="stat"><b>∞</b><span>Curiosity</span></div>
-          </div>
-          <div class="aboutline">
-            <div class="aboutcard"><small>Focus</small><b>Business problems → clear systems</b><p>From messy data and repetitive operations to dashboards, workflows and usable decisions.</p></div>
-            <div class="aboutcard"><small>Style</small><b>Minimal interface. Strong visual hierarchy.</b><p>A portfolio should feel like a product — not a wall of text.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="work" class="view">
-        <div class="sectionpad">
-          <div class="sectionhead">
-            <div><div class="eyebrow">Selected work</div><h2>Analytics & BI</h2></div>
-            <div class="filters" id="projectFilters"></div>
-          </div>
-          <div class="grid" id="projectGrid"></div>
-        </div>
-      </section>
-
-      <section id="creative" class="view">
-        <div class="sectionpad">
-          <div class="creativeintro">
-            <div><div class="eyebrow">Creative Studio</div><h2 style="font-size:34px;letter-spacing:-.055em;margin:6px 0 0">Graphic Design</h2></div>
-            <div style="text-align:right"><p style="font-size:9px;color:#737d8a;margin:0 0 8px">Original work • packaging • campaigns • branding</p><a href="https://drive.google.com/drive/folders/158EhPqMiCwT8OOZFJHC-UC4k-ACSL-T6?usp=drive_link" target="_blank" class="pill">Open Drive archive ↗</a></div>
-          </div>
-          <div class="filters" id="creativeFilters" style="margin-bottom:14px"></div>
-          <div class="creative-grid" id="creativeGrid"></div>
-        </div>
-      </section>
-
-      <section id="profile" class="view">
-        <div class="profileview">
-          <div class="info-card">
-            <div class="eyebrow">Profile</div>
-            <h3 style="font-size:28px;letter-spacing:-.04em;margin-top:8px">Digital Marketing & Growth Analyst</h3>
-            <p>I combine creative communication, business analytics and automation to make digital work more measurable and more effective.</p>
-            <div class="contactlinks" style="margin-top:18px">
-              <a href="https://www.linkedin.com/in/visitsaket" target="_blank">LinkedIn ↗</a>
-              <a href="https://github.com/justsaket/new-portfolio" target="_blank">GitHub ↗</a>
-              <a href="mailto:b4u.iamsaket@gmail.com">b4u.iamsaket@gmail.com ↗</a>
-            </div>
-          </div>
-          <div class="info-card">
-            <div class="eyebrow">Experience</div>
-            <div class="timeline">
-              <div class="job"><small>Nov 2025 — Apr 2026</small><b>Social Media Executive</b><span>Rungta International Skills University</span></div>
-              <div class="job"><small>Nov 2024 — Present</small><b>Co-Founder / Operations & Growth Lead</b><span>Digital Finvest • Taste Plaza • Asketrulize</span></div>
-              <div class="job"><small>Jul 2023 — Mar 2024</small><b>Business Development Executive</b><span>Chal Digital</span></div>
-              <div class="job"><small>Jun 2022 — Apr 2023</small><b>Network Marketing Associate</b><span>Forever Living Products</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="view">
-        <div class="contactview">
-          <div>
-            <div class="eyebrow">Let’s work</div>
-            <h2>Have a project?<br>Let’s make it real.</h2>
-            <p>Need a dashboard, growth system, automation workflow, social campaign or visual identity? Send the brief.</p>
-            <div class="contactlinks">
-              <a href="mailto:b4u.iamsaket@gmail.com">Email Saket ↗</a>
-              <a href="https://www.linkedin.com/in/visitsaket" target="_blank">Connect on LinkedIn ↗</a>
-              <a href="https://github.com/justsaket/new-portfolio" target="_blank">Explore GitHub ↗</a>
-            </div>
-          </div>
-          <form class="form" onsubmit="sendMail(event)">
-            <label>Name<input id="name" required></label>
-            <label>Email<input id="email" type="email" required></label>
-            <label>What do you need?<input id="need" required placeholder="Dashboard, branding, automation..."></label>
-            <label>Brief<textarea id="brief" required placeholder="Tell me a little about the project"></textarea></label>
-            <button class="btn primary" type="submit">Start the conversation ↗</button>
-          </form>
-        </div>
-      </section>
     </div>
   </section>
-</main>
 
-<nav class="dock" aria-label="Quick navigation">
-  <button title="Home" onclick="showView('home')">⌂</button>
-  <button title="Analytics" onclick="showView('work')">▣</button>
-  <button title="Creative" onclick="showView('creative')">✦</button>
-  <button title="About" onclick="showView('profile')">◉</button>
-  <button title="Contact" onclick="showView('contact')">↗</button>
-  <button title="Search" onclick="openSearch()">⌕</button>
-</nav>
-
-<div class="modal hide" id="projectModal">
-  <div class="modalbox">
-    <div class="modalbar"><b id="modalTitle">Case Study</b><button class="close" onclick="closeProject()">ESC · CLOSE</button></div>
-    <div class="modalbody">
-      <div class="eyebrow" id="modalCat"></div>
-      <h2 id="modalHead"></h2>
-      <p id="modalDesc"></p>
-      <div class="modalgrid">
-        <div class="modalcard"><small>Key metric</small><b id="modalMetric"></b></div>
-        <div class="modalcard"><small>Stack</small><b id="modalStack" style="font-size:13px"></b></div>
-      </div>
-      <div class="modalgrid" style="margin-top:10px">
-        <div class="modalcard"><small>What I built</small><ul id="modalBuild"></ul></div>
-        <div class="modalcard"><small>Decision signals</small><ul id="modalFindings"></ul></div>
-      </div>
+  <section class="window finder" id="winFinder" data-app="Finder">
+    <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winFinder')"></i><i class="light ly" onclick="minimizeWindow('winFinder')"></i><i class="light lg" onclick="toggleMax('winFinder')"></i></div><div class="wtitle">Finder</div><div class="wtools"><button onclick="toggleMax('winFinder')">↗</button></div></div>
+    <div class="window-body finder-layout">
+      <aside class="finder-side"><div class="group">Favorites</div><button class="active" onclick="finderSection('home',this)">⌂ Home</button><button onclick="finderSection('work',this)">▣ Analytics</button><button onclick="finderSection('creative',this)">✦ Creative</button><button onclick="finderSection('about',this)">◉ About</button><button onclick="finderSection('contact',this)">↗ Contact</button><div class="group">Links</div><button onclick="window.open('https://www.linkedin.com/in/visitsaket','_blank')">in LinkedIn</button><button onclick="window.open('https://github.com/justsaket/new-portfolio','_blank')">◖ GitHub</button></aside>
+      <main class="finder-main" id="finderMain"></main>
     </div>
+  </section>
+
+  <section class="window projects-window" id="winWork" data-app="Analytics">
+    <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winWork')"></i><i class="light ly" onclick="minimizeWindow('winWork')"></i><i class="light lg" onclick="toggleMax('winWork')"></i></div><div class="wtitle">Analytics & BI</div><div class="wtools"><button onclick="toggleMax('winWork')">↗</button></div></div>
+    <div class="window-body projects-body"><div class="section-head"><div><div class="hero-kicker">Selected work</div><h2>Analytics & Business Intelligence</h2></div><p>Click any case to inspect the problem, metric, build and findings.</p></div><div class="filters" id="workFilters"></div><div class="workgrid" id="workGrid"></div></div>
+  </section>
+
+  <section class="window creative-window" id="winCreative" data-app="Creative Studio">
+    <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winCreative')"></i><i class="light ly" onclick="minimizeWindow('winCreative')"></i><i class="light lg" onclick="toggleMax('winCreative')"></i></div><div class="wtitle">Creative Studio</div><div class="wtools"><button onclick="toggleMax('winCreative')">↗</button></div></div>
+    <div class="window-body creative-body"><div class="section-head"><div><div class="hero-kicker">Creative Studio</div><h2>Graphic Design</h2></div><a class="pill" href="https://drive.google.com/drive/folders/158EhPqMiCwT8OOZFJHC-UC4k-ACSL-T6?usp=drive_link" target="_blank">Drive archive ↗</a></div><div class="filters" id="creativeFilters"></div><div class="creativegrid" id="creativeGrid"></div></div>
+  </section>
+
+  <section class="window about-window" id="winAbout" data-app="About Me">
+    <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winAbout')"></i><i class="light ly" onclick="minimizeWindow('winAbout')"></i><i class="light lg" onclick="toggleMax('winAbout')"></i></div><div class="wtitle">About Saket</div><div class="wtools"><button onclick="toggleMax('winAbout')">↗</button></div></div>
+    <div class="window-body aboutbody">
+      <div class="about-card"><div class="hero-kicker">Profile</div><h3 style="font-size:28px;letter-spacing:-.05em;margin-top:7px">Digital Marketing & Growth Analyst</h3><p>I combine business analytics, creative communication and automation to turn messy inputs into clearer decisions and better digital systems.</p><div class="linkstack"><a href="https://www.linkedin.com/in/visitsaket" target="_blank">LinkedIn ↗</a><a href="https://github.com/justsaket/new-portfolio" target="_blank">GitHub ↗</a><a href="mailto:b4u.iamsaket@gmail.com">b4u.iamsaket@gmail.com ↗</a></div></div>
+      <div class="about-card"><div class="hero-kicker">Experience</div><div class="jobs"><div class="job"><small>Nov 2025 — Apr 2026</small><b>Social Media Executive</b><span>Rungta International Skills University</span></div><div class="job"><small>Nov 2024 — Present</small><b>Co-Founder / Operations & Growth Lead</b><span>Digital Finvest • Taste Plaza • Asketrulize</span></div><div class="job"><small>Jul 2023 — Mar 2024</small><b>Business Development Executive</b><span>Chal Digital</span></div><div class="job"><small>Jun 2022 — Apr 2023</small><b>Network Marketing Associate</b><span>Forever Living Products</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="window contact-window" id="winContact" data-app="Contact">
+    <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winContact')"></i><i class="light ly" onclick="minimizeWindow('winContact')"></i><i class="light lg" onclick="toggleMax('winContact')"></i></div><div class="wtitle">Contact Saket</div><div class="wtools"><button onclick="toggleMax('winContact')">↗</button></div></div>
+    <div class="window-body contactbody"><div><div class="hero-kicker">Let’s work</div><h2>Have a project?<br>Let’s make it real.</h2><p>Dashboard, branding, growth system, automation workflow or social campaign — send the brief.</p><div class="contactlinks"><a href="mailto:b4u.iamsaket@gmail.com">Email Saket ↗</a><a href="https://www.linkedin.com/in/visitsaket" target="_blank">Connect on LinkedIn ↗</a><a href="https://github.com/justsaket/new-portfolio" target="_blank">GitHub ↗</a></div></div><form class="form" onsubmit="sendMail(event)"><label>Name<input id="cname" required></label><label>Email<input id="cemail" type="email" required></label><label>Need<input id="cneed" required placeholder="Dashboard, branding, automation..."></label><label>Brief<textarea id="cbrief" required placeholder="Tell me a little about the project"></textarea></label><button class="primary" style="padding:10px;border-radius:9px;font-size:9px" type="submit">Start conversation ↗</button></form></div>
+  </section>
+
+  <div class="dock">
+    <button title="Finder" onclick="openFinder()">⌁</button><button title="Analytics" onclick="openWork()">▣</button><button title="Creative Studio" onclick="openCreative()">✦</button><button title="About" onclick="openAbout()">◉</button><button title="Contact" onclick="openContact()">↗</button><span class="sep"></span><button title="Launchpad" onclick="toggleLaunchpad()">⌘</button><button title="Spotlight" onclick="openSpotlight()">⌕</button><button title="Siri" onclick="toggleSiri()">◉</button>
   </div>
 </div>
 
-<div class="lightbox hide" id="lightbox">
-  <div class="lb">
-    <div class="lbhead"><b id="lbTitle"></b><button class="close" onclick="closeCreative()">ESC · CLOSE</button></div>
-    <div class="lbimg" id="lbImg"></div>
-  </div>
-</div>
+<div class="launchpad" id="launchpad"><div class="launchgrid" id="launchgrid"></div></div>
+<div class="control" id="control"><div class="controlgrid"><div class="controltile"><b>Wi‑Fi</b><small>Connected</small></div><div class="controltile"><b>Bluetooth</b><small>On</small></div><div class="controltile"><b>Focus</b><small>Portfolio mode</small></div><div class="controltile"><b>AirDrop</b><small>Contacts only</small></div><div class="controltile"><b>Display</b><div class="slider"><i style="width:75%"></i></div></div><div class="controltile"><b>Volume</b><div class="slider"><i style="width:58%"></i></div></div></div></div>
+<div class="siri" id="siri"><div class="siritop"><div class="orb"></div><div><strong>Siri for Saket</strong><small>Portfolio assistant</small></div></div><div class="siribody">Try “show analytics”, “open design”, “about Saket”, or “contact”.</div><div class="siribtns"><button onclick="openWork();toggleSiri()">Analytics</button><button onclick="openCreative();toggleSiri()">Design</button><button onclick="openAbout();toggleSiri()">About</button><button onclick="openContact();toggleSiri()">Contact</button></div></div>
 
-<div class="search hide" id="search">
-  <div class="searchbox">
-    <div class="searchinput"><span>⌕</span><input id="searchField" autofocus placeholder="Search Saket’s portfolio…" oninput="search(this.value)"><span class="pill">ESC</span></div>
-    <div class="results" id="results"></div>
-  </div>
-</div>
+<div class="spotlight hide" id="spotlight"><div class="spotbox"><div class="spotinput"><span>⌕</span><input id="spotInput" placeholder="Search Saket’s portfolio…" oninput="searchSpot(this.value)"><span style="font-size:8px;color:#737c88;border:1px solid var(--line);border-radius:6px;padding:4px 6px">ESC</span></div><div class="spotresults" id="spotResults"></div></div></div>
+
+<div class="case-modal hide" id="caseModal"><div class="casebox"><div class="casehead"><b id="caseTitle"></b><button class="close" onclick="closeCase()">ESC · CLOSE</button></div><div class="casebody"><div class="hero-kicker" id="caseCat"></div><h2 id="caseHead"></h2><p id="caseDesc"></p><div class="casegrid"><div class="casecard"><small>Key metric</small><b id="caseMetric"></b></div><div class="casecard"><small>Stack</small><b id="caseStack" style="font-size:11px"></b></div></div><div class="casegrid"><div class="casecard"><small>What I built</small><ul id="caseBuild"></ul></div><div class="casecard"><small>Decision signals</small><ul id="caseFindings"></ul></div></div></div></div></div>
+
+<div class="creative-modal hide" id="creativeModal"><div class="casebox"><div class="casehead"><b id="creativeTitle"></b><button class="close" onclick="closeCreativeModal()">ESC · CLOSE</button></div><div class="creative-large" id="creativeLarge"></div></div></div>
+<div id="cursor"></div>
 
 <script>
 const projects=[
@@ -229,7 +162,6 @@ const projects=[
 {id:'06',cat:'BI',title:'Analytics & Business Intelligence Command Center',desc:'Customer LTV, HR attrition, financial BI and mutual fund comparison in one executive model.',stack:'Power BI • Python • SQL • Excel • DAX',metric:'4 executive domains',build:['Customer segmentation & LTV.','HR attrition & workforce analytics.','Financial and fund comparison views.'],findings:['Customer view emphasizes value concentration.','HR view compares tenure, overtime and satisfaction.','Finance view connects growth with profitability.']},
 {id:'07',cat:'Growth',title:'Digital Marketing Intelligence',desc:'SEO opportunity, Google Ads simulation and 3-month content calendar linked to measurement.',stack:'SEO • Google Ads • Python • SQL • Power BI',metric:'85 sample SEO average',build:['SEO opportunity audit.','Paid media performance model.','Funnel-based content planning.'],findings:['Paid media revenue in the portfolio is simulated.','SEO scores are illustrative audit values.','Optimization loop: measure → diagnose → change → re-measure.']}
 ];
-
 const creativeWorks=[
 {id:0,cat:'Packaging',title:'GreenWeld Premium Electrode Packaging',type:'PRODUCT PACKAGING',desc:'Premium industrial packaging direction built around hierarchy, product claims and technical credibility.',tags:['Packaging','Branding','Industrial']},
 {id:1,cat:'Packaging',title:'GreenWeld Box Layout System',type:'PRINT / DIELINE',desc:'Flat-layout artwork balancing technical specifications, warnings, benefits and brand presence.',tags:['Packaging','Print','Information Design']},
@@ -239,88 +171,108 @@ const creativeWorks=[
 {id:5,cat:'Campaigns',title:'Krishna Janmashtami — Welding Strength',type:'FESTIVAL SOCIAL',desc:'Festival composition combining cultural symbolism with an industrial strength narrative.',tags:['Campaign','Social','Art Direction']},
 {id:6,cat:'Branding',title:'MAGNARC 6013 — Product Showcase',type:'PRODUCT VISUAL',desc:'Commercial product presentation designed to make the packaging feel cleaner, sharper and more premium.',tags:['Product','Packaging','Photoshoot']}
 ];
+const wallpaperNames=['w1','w2','w3','w4'];let wallIndex=0;let z=190;let dragState=null;let workFilter='all';let creativeFilter='all';
 
-let currentProjectFilter='all', currentCreativeFilter='All';
+function openWindow(id){
+  document.querySelectorAll('.window').forEach(function(w){if(w.id!==id)w.classList.remove('focus')});
+  const w=document.getElementById(id);if(!w)return;w.classList.add('show','focus');w.style.zIndex=++z;
+  document.getElementById('menuApp').textContent=w.dataset.app||'Finder';
+  document.getElementById('notchPage').textContent=w.dataset.app||'Home';
+}
+function closeWindow(id){document.getElementById(id).classList.remove('show','focus')}
+function minimizeWindow(id){
+  const w=document.getElementById(id);if(!w.classList.contains('show'))return;
+  w.classList.add('minimizing');setTimeout(function(){w.classList.remove('show','focus','minimizing')},400)
+}
+function toggleMax(id){document.getElementById(id).classList.toggle('full');openWindow(id)}
+function openHome(){openWindow('winHome')}
+function openFinder(){openWindow('winFinder');renderFinder('home')}
+function openWork(){openWindow('winWork');renderWork()}
+function openCreative(){openWindow('winCreative');renderCreative()}
+function openAbout(){openWindow('winAbout')}
+function openContact(){openWindow('winContact')}
+function toggleNotch(){document.getElementById('notch').classList.toggle('open')}
+function toggleLaunchpad(){document.getElementById('launchpad').classList.toggle('open');renderLaunchpad()}
+function toggleControl(){document.getElementById('control').classList.toggle('open')}
+function toggleSiri(){document.getElementById('siri').classList.toggle('open')}
+function toggleApple(){alert('Saket Portfolio OS\nFinder • Analytics • Creative Studio • About • Contact')}
+function cycleWallpaper(){wallIndex=(wallIndex+1)%wallpaperNames.length;document.getElementById('wallpaper').className='wallpaper '+wallpaperNames[wallIndex]}
+function tickClock(){const d=new Date();document.getElementById('clock').textContent=d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}).replace(' AM','').replace(' PM','')}
+setInterval(tickClock,1000);tickClock();
 
-function showView(id,btn){
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  const target=document.getElementById(id);
-  if(target)target.classList.add('active');
-  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
-  if(btn)btn.classList.add('active');
-  else{
-    const b=[...document.querySelectorAll('.nav button')].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));
-    if(b)b.classList.add('active');
-  }
-  const titles={home:'Saket — Home',work:'Work — Analytics & BI',creative:'Creative Studio — Graphic Design',profile:'Saket — Profile',contact:'Inquiry Desk — Contact'};
-  document.getElementById('windowTitle').textContent=titles[id]||'Saket — Portfolio';
-}
-function renderProjectFilters(){
-  const cats=['all','Analytics','BI','Automation','Growth'];
-  document.getElementById('projectFilters').innerHTML=cats.map(c=>'<button class="filter '+(currentProjectFilter===c?'active':'')+'" onclick="setProjectFilter(\''+c+'\')">'+(c==='all'?'All':c)+'</button>').join('');
-}
-function setProjectFilter(c){currentProjectFilter=c;renderProjectFilters();renderProjects()}
-function renderProjects(){
-  const list=projects.filter(p=>currentProjectFilter==='all'||p.cat===currentProjectFilter);
-  document.getElementById('projectGrid').innerHTML=list.map(p=>'<article class="card" onclick="openProject(\''+p.id+'\')"><div class="cardtop"><span>'+p.id+'</span><strong>'+p.cat+'</strong></div><div class="fakechart"><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><h3>'+p.title+'</h3><p>'+p.desc+'</p><div class="cardfoot"><span class="stack">'+p.stack+'</span><button class="openbtn">Open ↗</button></div></article>').join('');
-}
-function renderCreativeFilters(){
-  const cats=['All','Packaging','Campaigns','Branding','Social'];
-  document.getElementById('creativeFilters').innerHTML=cats.map(c=>'<button class="filter '+(currentCreativeFilter===c?'active':'')+'" onclick="setCreativeFilter(\''+c+'\')">'+c+'</button>').join('');
-}
-function setCreativeFilter(c){currentCreativeFilter=c;renderCreativeFilters();renderCreative()}
 function spritePos(i){const x=i%3,y=Math.floor(i/3);return (x===0?'0%':x===1?'50%':'100%')+' '+(y===0?'0%':y===1?'50%':'100%')}
+function finderSection(name,btn){document.querySelectorAll('.finder-side button').forEach(function(x){x.classList.remove('active')});if(btn)btn.classList.add('active');renderFinder(name)}
+function renderFinder(section){
+ let html='';
+ if(section==='home'){html='<div class="finder-head"><div><div class="hero-kicker">Saket Portfolio</div><h2>Welcome Home</h2></div><p>Choose an app to explore.</p></div><div class="appgrid">';
+ [{i:'⌂',t:'Home',s:'Start here',f:'home'},{i:'▣',t:'Analytics',s:'7 case studies',f:'work'},{i:'✦',t:'Creative',s:'Packaging & campaigns',f:'creative'},{i:'◉',t:'About',s:'Profile & experience',f:'about'},{i:'↗',t:'Contact',s:'Start a project',f:'contact'},{i:'⌘',t:'Wallpaper',s:'Change desktop',f:'wall'}].forEach(function(a){html+='<div class="app-card" onclick="finderSection(\''+a.f+'\',null)"><div class="appicon">'+a.i+'</div><h3>'+a.t+'</h3><p>'+a.s+'</p></div>'});html+='</div>'}
+ if(section==='work'){openWork();return}
+ if(section==='creative'){openCreative();return}
+ if(section==='about'){openAbout();return}
+ if(section==='contact'){openContact();return}
+ if(section==='wall'){cycleWallpaper();section='home';return renderFinder('home')}
+ document.getElementById('finderMain').innerHTML=html
+}
+function renderLaunchpad(){
+ const list=[['⌁','Finder',openFinder],['▣','Analytics',openWork],['✦','Creative',openCreative],['◉','About',openAbout],['↗','Contact',openContact],['⌕','Spotlight',openSpotlight],['◌','Siri',toggleSiri],['◈','Wallpaper',cycleWallpaper],['','Home',openHome]];
+ document.getElementById('launchgrid').innerHTML=list.map(function(a){return '<div class="launchapp"><button onclick="launchAction('+JSON.stringify(a[1])+')">'+a[0]+'</button><span>'+a[1]+'</span></div>'}).join('');
+ window.__launch=list;
+}
+function launchAction(name){const x=window.__launch.find(function(a){return a[1]===name});if(x){x[2]();document.getElementById('launchpad').classList.remove('open')}}
+
+function renderWorkFilters(){
+ const cats=['all','Analytics','BI','Automation','Growth'];document.getElementById('workFilters').innerHTML=cats.map(function(c){return '<button class="filter '+(workFilter===c?'active':'')+'" onclick="setWorkFilter(\''+c+'\')">'+(c==='all'?'All':c)+'</button>'}).join('');
+}
+function setWorkFilter(c){workFilter=c;renderWork()}
+function renderWork(){
+ renderWorkFilters();const list=projects.filter(function(p){return workFilter==='all'||p.cat===workFilter});
+ document.getElementById('workGrid').innerHTML=list.map(function(p){return '<article class="workcard" onclick="openCase(\''+p.id+'\')"><div class="mini-chart"><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="workmeta"><span>'+p.id+'</span><span>'+p.cat+'</span></div><h3>'+p.title+'</h3><p>'+p.desc+'</p></article>'}).join('');
+}
+function openCase(id){const p=projects.find(function(x){return x.id===id});if(!p)return;document.getElementById('caseTitle').textContent=p.id+' — '+p.title;document.getElementById('caseCat').textContent=p.cat+' / CASE STUDY';document.getElementById('caseHead').textContent=p.title;document.getElementById('caseDesc').textContent=p.desc;document.getElementById('caseMetric').textContent=p.metric;document.getElementById('caseStack').textContent=p.stack;document.getElementById('caseBuild').innerHTML=p.build.map(function(x){return '<li>'+x+'</li>'}).join('');document.getElementById('caseFindings').innerHTML=p.findings.map(function(x){return '<li>'+x+'</li>'}).join('');document.getElementById('caseModal').classList.remove('hide')}
+function closeCase(){document.getElementById('caseModal').classList.add('hide')}
+
+function renderCreativeFilters(){
+ const cats=['all','Packaging','Campaigns','Branding'];document.getElementById('creativeFilters').innerHTML=cats.map(function(c){return '<button class="filter '+(creativeFilter===c?'active':'')+'" onclick="setCreativeFilter(\''+c+'\')">'+(c==='all'?'All':c)+'</button>'}).join('');
+}
+function setCreativeFilter(c){creativeFilter=c;renderCreative()}
 function renderCreative(){
-  const list=creativeWorks.filter(w=>currentCreativeFilter==='All'||w.cat===currentCreativeFilter);
-  document.getElementById('creativeGrid').innerHTML=list.map(w=>'<article class="creative-card" onclick="openCreative('+w.id+')"><div class="creative-thumb" style="background-position:'+spritePos(w.id)+'"></div><div class="creative-card-body"><b>'+w.title+'</b><small>'+w.type+'</small><p>'+w.desc+'</p><div class="tags">'+w.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div></div></article>').join('');
+ renderCreativeFilters();const list=creativeWorks.filter(function(w){return creativeFilter==='all'||w.cat===creativeFilter});
+ document.getElementById('creativeGrid').innerHTML=list.map(function(w){return '<article class="creativecard" onclick="openCreativeModal('+w.id+')"><div class="cthumb" style="background-position:'+spritePos(w.id)+'"></div><div class="cbody"><b>'+w.title+'</b><small>'+w.type+'</small><p>'+w.desc+'</p><div class="ctags">'+w.tags.map(function(t){return '<span>'+t+'</span>'}).join('')+'</div></div></article>'}).join('');
 }
-function openProject(id){
-  const p=projects.find(x=>x.id===id);if(!p)return;
-  document.getElementById('modalTitle').textContent=p.id+' — '+p.title;
-  document.getElementById('modalCat').textContent=p.cat+' / CASE STUDY';
-  document.getElementById('modalHead').textContent=p.title;
-  document.getElementById('modalDesc').textContent=p.desc;
-  document.getElementById('modalMetric').textContent=p.metric;
-  document.getElementById('modalStack').textContent=p.stack;
-  document.getElementById('modalBuild').innerHTML=p.build.map(x=>'<li>'+x+'</li>').join('');
-  document.getElementById('modalFindings').innerHTML=p.findings.map(x=>'<li>'+x+'</li>').join('');
-  document.getElementById('projectModal').classList.remove('hide');
+function openCreativeModal(id){const w=creativeWorks.find(function(x){return x.id===id});if(!w)return;document.getElementById('creativeTitle').textContent=w.title;document.getElementById('creativeLarge').style.backgroundPosition=spritePos(id);document.getElementById('creativeModal').classList.remove('hide')}
+function closeCreativeModal(){document.getElementById('creativeModal').classList.add('hide')}
+
+function openSpotlight(){document.getElementById('spotlight').classList.remove('hide');const i=document.getElementById('spotInput');i.value='';searchSpot('');setTimeout(function(){i.focus()},25)}
+function searchSpot(q){
+ const t=(q||'').toLowerCase();const items=[...projects.map(function(p){return {name:p.title,type:'Analytics',fn:function(){openWork();openCase(p.id)}}}),...creativeWorks.map(function(w){return {name:w.title,type:'Design',fn:function(){openCreative();openCreativeModal(w.id)}}),{name:'Finder',type:'App',fn:openFinder},{name:'About Saket',type:'Profile',fn:openAbout},{name:'Contact Saket',type:'Contact',fn:openContact}].filter(function(x){return x.name.toLowerCase().includes(t)});document.getElementById('spotResults').innerHTML=items.slice(0,10).map(function(x,i){return '<button onclick="spotPick('+i+')"><span>'+x.name+'</span><small>'+x.type+'</small></button>'}).join('');window.__spot=items}
+function spotPick(i){window.__spot[i].fn();document.getElementById('spotlight').classList.add('hide')}
+
+function sendMail(e){e.preventDefault();const s=encodeURIComponent('Project inquiry — '+document.getElementById('cneed').value);const b=encodeURIComponent('Hi Saket,\n\nName: '+document.getElementById('cname').value+'\nEmail: '+document.getElementById('cemail').value+'\nNeed: '+document.getElementById('cneed').value+'\n\nBrief:\n'+document.getElementById('cbrief').value);location.href='mailto:b4u.iamsaket@gmail.com?subject='+s+'&body='+b}
+
+function wireDrag(){
+ document.querySelectorAll('.chrome').forEach(function(bar){
+   bar.addEventListener('pointerdown',function(e){
+     if(e.target.closest('.light')||e.target.closest('button'))return;
+     const w=bar.parentElement;if(w.classList.contains('full'))return;const r=w.getBoundingClientRect();dragState={w,startX:e.clientX,startY:e.clientY,left:r.left,top:r.top};w.setPointerCapture(e.pointerId);openWindow(w.id)
+   });
+   bar.addEventListener('pointermove',function(e){if(!dragState||dragState.w!==bar.parentElement)return;const w=dragState.w;w.style.left=(dragState.left+e.clientX-dragState.startX)+'px';w.style.top=(dragState.top+e.clientY-dragState.startY)+'px'});
+   bar.addEventListener('pointerup',function(){dragState=null});bar.addEventListener('pointercancel',function(){dragState=null})
+ })
 }
-function closeProject(){document.getElementById('projectModal').classList.add('hide')}
-function openCreative(id){
-  const w=creativeWorks.find(x=>x.id===id);if(!w)return;
-  document.getElementById('lbTitle').textContent=w.title;
-  document.getElementById('lbImg').style.backgroundPosition=spritePos(id);
-  document.getElementById('lightbox').classList.remove('hide');
-}
-function closeCreative(){document.getElementById('lightbox').classList.add('hide')}
-function openSearch(){
-  document.getElementById('search').classList.remove('hide');
-  const f=document.getElementById('searchField');f.value='';search('');setTimeout(()=>f.focus(),20);
-}
-function search(q){
-  const t=(q||'').toLowerCase();
-  const items=[
-    ...projects.map(p=>({name:p.title,type:'Analytics',run:()=>{showView('work');openProject(p.id)}})),
-    ...creativeWorks.map(w=>({name:w.title,type:'Design',run:()=>{showView('creative');openCreative(w.id)}})),
-    {name:'About Saket',type:'Profile',run:()=>showView('profile')},
-    {name:'Contact Saket',type:'Contact',run:()=>showView('contact')}
-  ].filter(x=>x.name.toLowerCase().includes(t));
-  document.getElementById('results').innerHTML=items.slice(0,10).map((x,i)=>'<button onclick="pickSearch('+i+')"><span>'+x.name+'</span><small>'+x.type+'</small></button>').join('');
-  window.__results=items;
-}
-function pickSearch(i){window.__results[i].run();document.getElementById('search').classList.add('hide')}
-function sendMail(e){
-  e.preventDefault();
-  const s=encodeURIComponent('Project inquiry — '+document.getElementById('need').value);
-  const b=encodeURIComponent('Hi Saket,\n\nName: '+document.getElementById('name').value+'\nEmail: '+document.getElementById('email').value+'\nNeed: '+document.getElementById('need').value+'\n\nBrief:\n'+document.getElementById('brief').value);
-  location.href='mailto:b4u.iamsaket@gmail.com?subject='+s+'&body='+b;
-}
-document.addEventListener('keydown',e=>{
-  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch()}
-  if(e.key==='Escape'){document.getElementById('search').classList.add('hide');closeProject();closeCreative()}
+document.addEventListener('pointerdown',function(e){const w=e.target.closest('.window');if(w)openWindow(w.id)});
+document.addEventListener('keydown',function(e){
+ if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSpotlight()}
+ if(e.key==='Escape'){document.getElementById('spotlight').classList.add('hide');document.getElementById('launchpad').classList.remove('open');document.getElementById('control').classList.remove('open');document.getElementById('notch').classList.remove('open');closeCase();closeCreativeModal()}
+ if(e.key==='F4')toggleLaunchpad()
+ if(e.key==='F5')cycleWallpaper()
 });
-renderProjectFilters();renderProjects();renderCreativeFilters();renderCreative();
+document.getElementById('desktop').addEventListener('dblclick',function(e){if(e.target.closest('.window')||e.target.closest('.dock')||e.target.closest('.menu')||e.target.closest('.notch'))return;cycleWallpaper()});
+document.getElementById('cursor').style.display=window.matchMedia('(pointer:fine)').matches?'block':'none';
+document.addEventListener('mousemove',function(e){const c=document.getElementById('cursor');c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';});
+document.addEventListener('mouseover',function(e){if(e.target.closest('button,a,.workcard,.creativecard,.app-card,.desktop-icon'))document.getElementById('cursor').classList.add('cursor-big')});
+document.addEventListener('mouseout',function(e){if(e.target.closest('button,a,.workcard,.creativecard,.app-card,.desktop-icon'))document.getElementById('cursor').classList.remove('cursor-big')});
+
+renderFinder('home');renderWork();renderCreative();renderLaunchpad();wireDrag();setTimeout(function(){document.getElementById('boot').classList.add('hide');document.getElementById('desktop').classList.add('ready')},1650);
 </script>
 </body>
 </html>

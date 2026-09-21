@@ -54,6 +54,35 @@ button,input,textarea{font:inherit}button{border:0;background:none;color:inherit
   body{overflow:hidden}.menu{height:30px}.desktop-icons{display:none}.notch{width:180px}.notch.open{width:92vw}.homewindow,.projects-window,.creative-window,.about-window,.contact-window,.finder{left:4vw;top:45px;width:92vw;height:calc(100vh - 120px)}
   .window.full{left:4vw!important;right:4vw!important;top:45px!important;bottom:76px!important}.chrome{grid-template-columns:70px 1fr 70px}.finder-layout{grid-template-columns:1fr}.finder-side{display:none}.appgrid,.workgrid,.creativegrid{grid-template-columns:1fr 1fr}.homebody{padding:28px 22px}.hero h1{font-size:44px}.hero-stats{grid-template-columns:1fr 1fr}.hero-grid,.aboutbody,.contactbody,.casegrid{grid-template-columns:1fr}.launchpad{padding:70px 20px}.launchgrid{grid-template-columns:repeat(4,1fr);gap:18px}.dock button{width:42px;height:42px;font-size:17px}.dock{bottom:9px}.control{right:10px;width:min(330px,calc(100vw - 20px))}
 }
+
+/* premium polish */
+.window{isolation:isolate}
+.window:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(120deg,rgba(255,255,255,.055),transparent 24%,transparent 72%,rgba(117,169,255,.035));opacity:.8;z-index:-1}
+.window-body{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.16) transparent}
+.chrome{position:relative}
+.chrome:after{content:"";position:absolute;left:14%;right:14%;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
+.window .light{cursor:pointer;box-shadow:0 0 0 0 rgba(255,255,255,0);transition:transform .18s var(--ease),box-shadow .18s}
+.window .light:hover{transform:scale(1.12);box-shadow:0 0 12px rgba(255,255,255,.13)}
+.resize-handle{position:absolute;right:4px;bottom:4px;width:16px;height:16px;cursor:nwse-resize;z-index:8;background:linear-gradient(135deg,transparent 45%,rgba(255,255,255,.18) 46%,transparent 52%),linear-gradient(135deg,transparent 60%,rgba(255,255,255,.12) 61%,transparent 67%);opacity:.55}
+.tooltip{position:absolute;left:50%;bottom:58px;transform:translateX(-50%) translateY(6px);padding:5px 7px;border-radius:7px;background:rgba(18,21,27,.88);border:1px solid rgba(255,255,255,.1);font-size:7px;color:#e9edf4;white-space:nowrap;opacity:0;pointer-events:none;transition:.18s var(--ease);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.dock button:hover .tooltip{opacity:1;transform:translateX(-50%) translateY(0)}
+.apple-menu{position:absolute;top:36px;left:8px;z-index:620;width:235px;padding:7px;background:rgba(18,21,27,.88);border:1px solid rgba(255,255,255,.14);border-radius:13px;backdrop-filter:blur(24px);box-shadow:0 25px 70px rgba(0,0,0,.58);display:none}
+.apple-menu.open{display:block}
+.apple-menu button{width:100%;display:flex;justify-content:space-between;align-items:center;padding:8px 9px;border-radius:8px;font-size:9px;color:#d8dde6;text-align:left}
+.apple-menu button:hover{background:rgba(255,255,255,.07)}
+.apple-menu .sep2{height:1px;background:rgba(255,255,255,.07);margin:5px 0}
+.system-banner{position:fixed;right:18px;top:44px;z-index:610;padding:9px 12px;border:1px solid rgba(255,255,255,.13);border-radius:11px;background:rgba(18,21,27,.82);backdrop-filter:blur(20px);box-shadow:0 15px 45px rgba(0,0,0,.35);font-size:8px;color:#aab2bd;opacity:0;transform:translateY(-10px);pointer-events:none;transition:.25s var(--ease)}
+.system-banner.show{opacity:1;transform:none}
+.terminal{width:690px;height:490px;left:calc(50% - 345px);top:calc(50% - 245px);background:rgba(9,11,14,.93)}
+.term-body{padding:15px;font:10px/1.65 "SFMono-Regular",Consolas,monospace;color:#d9e6f4;overflow:auto;height:calc(100% - 48px)}
+.term-line{white-space:pre-wrap}.term-prompt{color:#70e0b5}.term-caret{display:inline-block;width:6px;height:12px;background:#e7edf5;vertical-align:-2px;animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+.term-input{display:flex;gap:6px;align-items:center}.term-input input{flex:1;background:transparent;border:0;outline:0;color:#eef2f8;font:10px "SFMono-Regular",Consolas,monospace}
+.xcode{width:900px;height:570px;left:calc(50% - 450px);top:calc(50% - 280px);background:#171a20}
+.xcode-body{display:grid;grid-template-columns:180px 1fr;height:calc(100% - 48px)}.xcode-side{padding:10px;border-right:1px solid var(--line);background:rgba(0,0,0,.18)}.xcode-group{font:8px ui-monospace,monospace;color:#66707e;text-transform:uppercase;letter-spacing:.11em;padding:7px}.xfile{width:100%;padding:8px 9px;border-radius:7px;text-align:left;font-size:9px;color:#9ca5b1}.xfile.active,.xfile:hover{background:rgba(117,169,255,.12);color:#e9edf4}.editor{padding:18px;overflow:auto;background:linear-gradient(180deg,#171a20,#111419)}.code-line{display:grid;grid-template-columns:34px 1fr;gap:12px;font:9px/1.7 ui-monospace,SFMono-Regular,monospace}.ln{color:#4f5864;text-align:right}.kw{color:#c3a2ff}.fn{color:#82b6ff}.str{color:#83dfb4}.cm{color:#68727f}
+.photos{width:920px;height:600px;left:calc(50% - 460px);top:calc(50% - 295px)}.photos-body{padding:18px;overflow:auto;background:linear-gradient(180deg,#14171c,#101216)}.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.photo-tile{height:175px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background-image:url("assets/creative-sprite.webp");background-size:300% 300%;background-repeat:no-repeat;cursor:pointer;transition:.22s var(--ease);position:relative;overflow:hidden}.photo-tile:after{content:"";position:absolute;inset:auto 0 0;height:38%;background:linear-gradient(transparent,rgba(0,0,0,.68))}.photo-tile:hover{transform:scale(1.015)}.photo-caption{position:absolute;left:8px;right:8px;bottom:7px;z-index:2;font-size:7px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.notes{width:760px;height:540px;left:calc(50% - 380px);top:calc(50% - 265px)}.notes-body{display:grid;grid-template-columns:190px 1fr;height:calc(100% - 48px)}.notes-list{padding:9px;border-right:1px solid var(--line);background:#1b1e24}.note-item{padding:9px;border-radius:8px}.note-item.active,.note-item:hover{background:rgba(255,255,255,.06)}.note-item b{display:block;font-size:9px}.note-item small{display:block;color:#707985;font-size:7px;margin-top:3px}.note-content{padding:24px;overflow:auto}.note-content h2{font-size:27px;letter-spacing:-.05em;margin:0 0 8px}.note-content h3{font-size:12px;margin:20px 0 7px}.note-content p,.note-content li{font-size:9px;line-height:1.65;color:#828b98}.note-content ul{padding-left:18px}
+.safari{width:820px;height:540px;left:calc(50% - 410px);top:calc(50% - 265px)}.safari-body{padding:22px;overflow:auto;background:linear-gradient(180deg,#eef2f7 0%,#dce4ee 100%);color:#17202c}.safari-hero{max-width:650px;margin:30px auto}.safari-hero h2{font-size:42px;letter-spacing:-.065em;margin:10px 0}.safari-hero p{font-size:11px;line-height:1.7;color:#56606d}.site-links{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:22px}.site-link{padding:14px;border:1px solid rgba(16,24,36,.12);border-radius:12px;background:rgba(255,255,255,.58);box-shadow:0 10px 30px rgba(25,40,60,.1)}.site-link b{display:block;font-size:10px}.site-link span{display:block;margin-top:5px;font-size:8px;color:#68717d}
+.linkedin{width:820px;height:560px;left:calc(50% - 410px);top:calc(50% - 275px)}.linkedin-body{padding:20px;overflow:auto;background:#f3f5f7;color:#172026}.li-card{max-width:700px;margin:0 auto;background:white;border:1px solid #d8dde3;border-radius:12px;overflow:hidden}.li-banner{height:110px;background:linear-gradient(120deg,#0b233d,#194c7b 55%,#71a7d8)}.li-profile{padding:0 20px 20px}.li-avatar{margin-top:-28px;width:70px;height:70px;border-radius:50%;border:4px solid #fff;background:linear-gradient(145deg,#eef3ff,#a9c4f7);display:grid;place-items:center;color:#17243a;font-weight:900}.li-profile h2{margin:10px 0 3px;font-size:21px}.li-profile p{font-size:9px;color:#5c6875}.li-actions{display:flex;gap:6px;margin-top:12px}.li-actions a{font-size:8px;border:1px solid #0a66c2;padding:7px 9px;border-radius:999px;color:#0a66c2}.github-window{width:820px;height:560px;left:calc(50% - 410px);top:calc(50% - 275px)}.github-body{padding:18px;overflow:auto;background:#0d1117}.gh-head{display:flex;align-items:center;gap:10px}.gh-mark{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#f0f6fc;color:#0d1117;font-size:20px}.gh-head b{font-size:12px}.gh-repo{margin-top:14px;border:1px solid #30363d;border-radius:10px;padding:14px;background:#161b22}.gh-repo h3{font-size:15px;margin:0;color:#58a6ff}.gh-repo p{font-size:9px;color:#8b949e;line-height:1.6}.gh-stats{display:flex;gap:13px;margin-top:10px;font-size:8px;color:#8b949e}
 </style>
 </head>
 <body>
@@ -141,6 +170,55 @@ button,input,textarea{font:inherit}button{border:0;background:none;color:inherit
   </div>
 </div>
 
+
+<div class="apple-menu" id="appleMenu">
+  <button onclick="closeApple();openAbout()">About Saket</button>
+  <button onclick="closeApple();openFinder()">Finder <span>⌘1</span></button>
+  <div class="sep2"></div>
+  <button onclick="closeApple();toggleControl()">System Settings</button>
+  <button onclick="closeApple();cycleWallpaper()">Change Wallpaper</button>
+  <div class="sep2"></div>
+  <button onclick="closeApple();toast('Portfolio is ready ✦')">Sleep</button>
+</div>
+<div class="system-banner" id="systemBanner"></div>
+
+<section class="window terminal" id="winTerminal" data-app="Terminal">
+  <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winTerminal')"></i><i class="light ly" onclick="minimizeWindow('winTerminal')"></i><i class="light lg" onclick="toggleMax('winTerminal')"></i></div><div class="wtitle">Terminal — Saket</div><div class="wtools"></div></div>
+  <div class="term-body" id="termBody">
+    <div class="term-line">Last login: portfolio://saket</div><div class="term-line">Type <span class="term-prompt">help</span> to see available commands.</div><div class="term-line">&nbsp;</div>
+    <div class="term-input"><span class="term-prompt">saket@portfolio ~ %</span><input id="termInput" autocomplete="off" spellcheck="false"><span class="term-caret"></span></div>
+  </div>
+</section>
+
+<section class="window xcode" id="winXcode" data-app="Xcode">
+  <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winXcode')"></i><i class="light ly" onclick="minimizeWindow('winXcode')"></i><i class="light lg" onclick="toggleMax('winXcode')"></i></div><div class="wtitle">Xcode — Saket Analytics Lab</div><div class="wtools"></div></div>
+  <div class="xcode-body"><aside class="xcode-side"><div class="xcode-group">Portfolio</div><button class="xfile active" onclick="showCode('home')">App.tsx</button><button class="xfile" onclick="showCode('kpi')">KPIModel.ts</button><button class="xfile" onclick="showCode('automation')">automation.ts</button><div class="xcode-group">Projects</div><button class="xfile" onclick="showCode('greenweld')">GreenWeld.md</button><button class="xfile" onclick="showCode('antara')">AntaraEdits.md</button></aside><div class="editor" id="editor"></div></div>
+</section>
+
+<section class="window photos" id="winPhotos" data-app="Photos">
+  <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winPhotos')"></i><i class="light ly" onclick="minimizeWindow('winPhotos')"></i><i class="light lg" onclick="toggleMax('winPhotos')"></i></div><div class="wtitle">Photos — Creative Archive</div><div class="wtools"></div></div>
+  <div class="photos-body"><div class="photo-grid" id="photoGrid"></div></div>
+</section>
+
+<section class="window notes" id="winNotes" data-app="Notes">
+  <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winNotes')"></i><i class="light ly" onclick="minimizeWindow('winNotes')"></i><i class="light lg" onclick="toggleMax('winNotes')"></i></div><div class="wtitle">Notes — Resume</div><div class="wtools"></div></div>
+  <div class="notes-body"><aside class="notes-list"><div class="note-item active"><b>About Saket</b><small>Profile</small></div><div class="note-item"><b>Experience</b><small>Timeline</small></div><div class="note-item"><b>Skills</b><small>Capabilities</small></div><div class="note-item"><b>Education</b><small>B.Com + DCA</small></div></aside><article class="note-content"><div class="hero-kicker">Resume Note</div><h2>Digital Marketing & Growth Analyst</h2><p>Results-driven professional working across performance marketing, business operations, analytics, AI-powered automation and creative communication.</p><h3>Core skills</h3><ul><li>SEO, SEM, Social Media Marketing, Affiliate Marketing and E-commerce</li><li>Power BI, Google Analytics, Advanced Excel, Data Analytics and BI</li><li>Python, C++, HTML, WordPress, Shopify and automation tooling</li><li>Canva, Adobe Creative Cloud, CorelDRAW and UI/UX basics</li></ul><h3>Education</h3><p>B.Com — Hemchand Yadav University · Diploma in Computer Applications — ITCT</p><h3>Projects</h3><p>LinkedIn automation · AI calling agent · API lead generation · Customer LTV · HR analytics · Financial BI · Mutual fund comparison · SEO optimization</p></article></div>
+</section>
+
+<section class="window safari" id="winSafari" data-app="Safari">
+  <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winSafari')"></i><i class="light ly" onclick="minimizeWindow('winSafari')"></i><i class="light lg" onclick="toggleMax('winSafari')"></i></div><div class="wtitle">Safari</div><div class="wtools"></div></div>
+  <div class="safari-body"><div class="safari-hero"><div class="hero-kicker">Saket on the web</div><h2>Every important link,<br>one clean tab.</h2><p>Jump directly to my professional profiles, creative archive and code.</p><div class="site-links"><a class="site-link" href="https://www.linkedin.com/in/visitsaket" target="_blank"><b>LinkedIn</b><span>Professional profile</span></a><a class="site-link" href="https://github.com/justsaket/new-portfolio" target="_blank"><b>GitHub</b><span>Portfolio + projects</span></a><a class="site-link" href="https://drive.google.com/drive/folders/158EhPqMiCwT8OOZFJHC-UC4k-ACSL-T6?usp=drive_link" target="_blank"><b>Google Drive</b><span>Creative archive</span></a></div></div></div>
+</section>
+
+<section class="window linkedin" id="winLinkedIn" data-app="LinkedIn">
+  <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winLinkedIn')"></i><i class="light ly" onclick="minimizeWindow('winLinkedIn')"></i><i class="light lg" onclick="toggleMax('winLinkedIn')"></i></div><div class="wtitle">LinkedIn</div><div class="wtools"></div></div>
+  <div class="linkedin-body"><div class="li-card"><div class="li-banner"></div><div class="li-profile"><div class="li-avatar">SD</div><h2>Saket Dandekar</h2><p>Digital Marketing & Growth Analyst · Bhilai, Chhattisgarh, India</p><p>I work across performance marketing, business analytics, BI, automation and visual communication.</p><div class="li-actions"><a href="https://www.linkedin.com/in/visitsaket" target="_blank">View profile ↗</a></div></div></div></div>
+</section>
+
+<section class="window github-window" id="winGitHub" data-app="GitHub">
+  <div class="chrome"><div class="lights"><i class="light lr" onclick="closeWindow('winGitHub')"></i><i class="light ly" onclick="minimizeWindow('winGitHub')"></i><i class="light lg" onclick="toggleMax('winGitHub')"></i></div><div class="wtitle">GitHub</div><div class="wtools"></div></div>
+  <div class="github-body"><div class="gh-head"><div class="gh-mark">◖</div><div><b>justsaket / new-portfolio</b><div style="font-size:8px;color:#8b949e">Saket Dandekar</div></div></div><div class="gh-repo"><h3>new-portfolio</h3><p>Interactive macOS-style portfolio containing analytics case studies, creative work, automation projects and personal profile.</p><div class="gh-stats"><span>Public</span><span>JavaScript</span><span>Portfolio OS</span></div><div style="margin-top:14px"><a href="https://github.com/justsaket/new-portfolio" target="_blank" style="display:inline-block;padding:8px 10px;border:1px solid #30363d;border-radius:8px;font-size:8px;color:#58a6ff">Open repository ↗</a></div></div></div>
+</section>
 <div class="launchpad" id="launchpad"><div class="launchgrid" id="launchgrid"></div></div>
 <div class="control" id="control"><div class="controlgrid"><div class="controltile"><b>Wi‑Fi</b><small>Connected</small></div><div class="controltile"><b>Bluetooth</b><small>On</small></div><div class="controltile"><b>Focus</b><small>Portfolio mode</small></div><div class="controltile"><b>AirDrop</b><small>Contacts only</small></div><div class="controltile"><b>Display</b><div class="slider"><i style="width:75%"></i></div></div><div class="controltile"><b>Volume</b><div class="slider"><i style="width:58%"></i></div></div></div></div>
 <div class="siri" id="siri"><div class="siritop"><div class="orb"></div><div><strong>Siri for Saket</strong><small>Portfolio assistant</small></div></div><div class="siribody">Try “show analytics”, “open design”, “about Saket”, or “contact”.</div><div class="siribtns"><button onclick="openWork();toggleSiri()">Analytics</button><button onclick="openCreative();toggleSiri()">Design</button><button onclick="openAbout();toggleSiri()">About</button><button onclick="openContact();toggleSiri()">Contact</button></div></div>
@@ -190,12 +268,12 @@ function openFinder(){openWindow('winFinder');renderFinder('home')}
 function openWork(){openWindow('winWork');renderWork()}
 function openCreative(){openWindow('winCreative');renderCreative()}
 function openAbout(){openWindow('winAbout')}
-function openContact(){openWindow('winContact')}
+function openContact(){openWindow('winContact')}function openTerminal(){openWindow('winTerminal');setTimeout(function(){document.getElementById('termInput').focus()},40)}function openXcode(){openWindow('winXcode');showCode('home')}function openPhotos(){openWindow('winPhotos');renderPhotos()}function openNotes(){openWindow('winNotes')}function openSafari(){openWindow('winSafari')}function openLinkedIn(){openWindow('winLinkedIn')}function openGitHub(){openWindow('winGitHub')}
 function toggleNotch(){document.getElementById('notch').classList.toggle('open')}
 function toggleLaunchpad(){document.getElementById('launchpad').classList.toggle('open');renderLaunchpad()}
 function toggleControl(){document.getElementById('control').classList.toggle('open')}
 function toggleSiri(){document.getElementById('siri').classList.toggle('open')}
-function toggleApple(){alert('Saket Portfolio OS\nFinder • Analytics • Creative Studio • About • Contact')}
+function toggleApple(){document.getElementById('appleMenu').classList.toggle('open')}function closeApple(){document.getElementById('appleMenu').classList.remove('open')}function toast(msg){const b=document.getElementById('systemBanner');b.textContent=msg;b.classList.add('show');setTimeout(function(){b.classList.remove('show')},1800)}
 function cycleWallpaper(){wallIndex=(wallIndex+1)%wallpaperNames.length;document.getElementById('wallpaper').className='wallpaper '+wallpaperNames[wallIndex]}
 function tickClock(){const d=new Date();document.getElementById('clock').textContent=d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}).replace(' AM','').replace(' PM','')}
 setInterval(tickClock,1000);tickClock();
@@ -214,7 +292,7 @@ function renderFinder(section){
  document.getElementById('finderMain').innerHTML=html
 }
 function renderLaunchpad(){
- const list=[['⌁','Finder',openFinder],['▣','Analytics',openWork],['✦','Creative',openCreative],['◉','About',openAbout],['↗','Contact',openContact],['⌕','Spotlight',openSpotlight],['◌','Siri',toggleSiri],['◈','Wallpaper',cycleWallpaper],['','Home',openHome]];
+ const list=[['⌁','Finder',openFinder],['▣','Analytics',openWork],['✦','Creative',openCreative],['◉','About',openAbout],['↗','Contact',openContact],['>_','Terminal',openTerminal],['⌘','Xcode',openXcode],['▤','Photos',openPhotos],['▥','Notes',openNotes],['◌','Safari',openSafari],['in','LinkedIn',openLinkedIn],['◖','GitHub',openGitHub],['⌕','Spotlight',openSpotlight],['◌','Siri',toggleSiri],['◈','Wallpaper',cycleWallpaper]];
  document.getElementById('launchgrid').innerHTML=list.map(function(a){return '<div class="launchapp"><button onclick="launchAction('+JSON.stringify(a[1])+')">'+a[0]+'</button><span>'+a[1]+'</span></div>'}).join('');
  window.__launch=list;
 }
@@ -249,6 +327,7 @@ function spotPick(i){window.__spot[i].fn();document.getElementById('spotlight').
 
 function sendMail(e){e.preventDefault();const s=encodeURIComponent('Project inquiry — '+document.getElementById('cneed').value);const b=encodeURIComponent('Hi Saket,\n\nName: '+document.getElementById('cname').value+'\nEmail: '+document.getElementById('cemail').value+'\nNeed: '+document.getElementById('cneed').value+'\n\nBrief:\n'+document.getElementById('cbrief').value);location.href='mailto:b4u.iamsaket@gmail.com?subject='+s+'&body='+b}
 
+function wireResize(){document.querySelectorAll('.window').forEach(function(w){if(w.querySelector('.resize-handle'))return;const r=document.createElement('div');r.className='resize-handle';w.appendChild(r);let rs=null;r.addEventListener('pointerdown',function(e){if(w.classList.contains('full'))return;e.stopPropagation();const box=w.getBoundingClientRect();rs={x:e.clientX,y:e.clientY,w:box.width,h:box.height};r.setPointerCapture(e.pointerId)});r.addEventListener('pointermove',function(e){if(!rs)return;w.style.width=Math.max(380,rs.w+e.clientX-rs.x)+'px';w.style.height=Math.max(270,rs.h+e.clientY-rs.y)+'px'});r.addEventListener('pointerup',function(){rs=null});r.addEventListener('pointercancel',function(){rs=null})})}
 function wireDrag(){
  document.querySelectorAll('.chrome').forEach(function(bar){
    bar.addEventListener('pointerdown',function(e){
@@ -272,7 +351,7 @@ document.addEventListener('mousemove',function(e){const c=document.getElementByI
 document.addEventListener('mouseover',function(e){if(e.target.closest('button,a,.workcard,.creativecard,.app-card,.desktop-icon'))document.getElementById('cursor').classList.add('cursor-big')});
 document.addEventListener('mouseout',function(e){if(e.target.closest('button,a,.workcard,.creativecard,.app-card,.desktop-icon'))document.getElementById('cursor').classList.remove('cursor-big')});
 
-renderFinder('home');renderWork();renderCreative();renderLaunchpad();wireDrag();setTimeout(function(){document.getElementById('boot').classList.add('hide');document.getElementById('desktop').classList.add('ready')},1650);
+renderFinder('home');renderWork();renderCreative();renderLaunchpad();showCode('home');wireDrag();wireResize();renderPhotos();const ti=document.getElementById('termInput');ti.addEventListener('keydown',function(e){if(e.key==='Enter'){const v=ti.value;termWrite('saket@portfolio ~ % '+v);runTerm(v);ti.value=''}});document.addEventListener('click',function(e){if(!e.target.closest('.menu-brand')&&!e.target.closest('#appleMenu'))closeApple()})setTimeout(function(){document.getElementById('boot').classList.add('hide');document.getElementById('desktop').classList.add('ready')},1650);
 </script>
 </body>
 </html>

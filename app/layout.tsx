@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "SPYLT — Protein With Personality",
-  description: "An immersive beverage landing page recreation built for Markas 3.",
+  description: "SPYLT-inspired immersive beverage landing page recreation.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

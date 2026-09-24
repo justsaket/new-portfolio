@@ -1,113 +1,119 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-type Project = { src: string; title: string; description: string; href: string };
-
-const projects: Project[] = [
-  { src: "https://zjjcbyeirsumszohvtvu.supabase.co/storage/v1/object/public/portfolio/projects/d22d833d-dfb5-40dc-97d7-4267f44d49cd.jpg", title: "Designer Portfolio", description: "Glass UI, motion-led presentation and a visual-first portfolio experience.", href: "https://designer-portfolio-adx.vercel.app/" },
-  { src: "https://zjjcbyeirsumszohvtvu.supabase.co/storage/v1/object/public/portfolio/projects/2c41cac4-7cb6-4c78-83b8-9f4f5faf1427.png", title: "Developer Portfolio", description: "A polished front-end portfolio with responsive layouts and interaction.", href: "https://www.pratikdhandare.in" },
-  { src: "https://zjjcbyeirsumszohvtvu.supabase.co/storage/v1/object/public/portfolio/projects/22371395-fcc1-4c24-883d-00808591055b.png", title: "SPYLT", description: "A cinematic product experience with personality-led visual direction.", href: "https://try-spylt.vercel.app" },
-  { src: "https://zjjcbyeirsumszohvtvu.supabase.co/storage/v1/object/public/portfolio/projects/5ee4fab7-08a3-465e-a4a7-ce5c85d50a35.png", title: "iOS / macOS Portfolio", description: "An interface that behaves like an operating system.", href: "https://ios-macos-portfolio.vercel.app" }
+const flavors = [
+  { name: "Chocolate", note: "classic / rich", color: "#d8b49b", accent: "#6d321e" },
+  { name: "Strawberry", note: "sweet / bright", color: "#f2a7a7", accent: "#9c303d" },
+  { name: "Cookies & Cream", note: "crunch / creamy", color: "#d6d2c9", accent: "#2b2926" },
+  { name: "Peanut Butter", note: "nutty / smooth", color: "#e6c27a", accent: "#7c4e18" },
+  { name: "Vanilla", note: "soft / silky", color: "#eee5c8", accent: "#8b6f35" },
+  { name: "Max Choco", note: "deep / intense", color: "#8e756a", accent: "#241713" },
 ];
 
-function Reveal({children,delay=0}:{children:React.ReactNode;delay?:number}) {
-  return <motion.div initial={{opacity:0,y:24,filter:"blur(8px)"}} whileInView={{opacity:1,y:0,filter:"blur(0px)"}} viewport={{once:true,margin:"-60px"}} transition={{duration:.8,delay,ease:[.16,1,.3,1]}}>{children}</motion.div>
-}
-
-export default function Page(){
-  const [active,setActive]=useState<Project|null>(null);
-  const aRef=useRef<HTMLDivElement>(null);
-  const bRef=useRef<HTMLDivElement>(null);
-
-  useEffect(()=>{
-    let lastY=window.scrollY, dir:"normal"|"reverse"="normal", acc=0, lastFlip=0, raf=0;
-    const onScroll=()=>{
-      if(raf) return;
-      raf=requestAnimationFrame(()=>{
-        raf=0;
-        const y=window.scrollY,d=y-lastY;lastY=y;if(!d)return;
-        if(Math.sign(d)!==Math.sign(acc)) acc=d; else acc+=d;
-        if(Math.abs(acc)<30)return;
-        const now=performance.now(); if(now-lastFlip<400)return;
-        const next=d>0?"normal":"reverse" as "normal"|"reverse";
-        if(next!==dir){dir=next;lastFlip=now;acc=0;if(aRef.current)aRef.current.style.animationDirection=next;if(bRef.current)bRef.current.style.animationDirection=next;}
-      });
-    };
-    window.addEventListener("scroll",onScroll,{passive:true});
-    return()=>{window.removeEventListener("scroll",onScroll);cancelAnimationFrame(raf)};
-  },[]);
-
-  const marqueeA=useMemo(()=>[...projects,...projects],[ ]);
-  const marqueeB=useMemo(()=>[...projects,...projects],[ ]);
-
-  useEffect(()=>{ if(!active)return; const prev=document.body.style.overflow; document.body.style.overflow="hidden"; const onKey=(e:KeyboardEvent)=>e.key==="Escape"&&setActive(null); window.addEventListener("keydown",onKey); return()=>{document.body.style.overflow=prev;window.removeEventListener("keydown",onKey)} },[active]);
-
-  return <>
-    <nav className="nav glass">
-      <a href="#" className="logo">Saket.</a>
-      <div className="navlinks">
-        <a href="#work">Work</a><a href="#about">About</a><a href="#capabilities">Capabilities</a><a href="#contact">Contact</a>
+function Can({ flavor, large = false }: { flavor: typeof flavors[number]; large?: boolean }) {
+  return (
+    <div className={large ? "can canLarge" : "can"} style={{ "--can": flavor.color, "--ink": flavor.accent } as React.CSSProperties}>
+      <div className="canTop" />
+      <div className="canBody">
+        <span className="tiny">PROTEIN + CAFFEINE</span>
+        <strong>SPYLT</strong>
+        <span className="flavor">{flavor.name}</span>
+        <span className="milk">MILK</span>
       </div>
-      <a className="btn primary" href="#contact">Let's talk <span>↗</span></a>
-    </nav>
-
-    <main>
-      <section className="hero">
-        <div className="glow"/>
-        <div className="hero-inner container">
-          <Reveal><span className="badge glass"><span className="dot"/> Available for selected projects</span></Reveal>
-          <Reveal delay={.08}><h1 className="display">I design digital<br/><span style={{color:"var(--accent)"}}>experiences</span> that move.</h1></Reveal>
-          <Reveal delay={.16}><p>Strategy, visual design and front-end craft — brought together into polished interfaces with depth, motion and a point of view.</p></Reveal>
-          <Reveal delay={.24}><div className="actions"><a href="#work" className="btn primary">Explore work →</a><a href="#about" className="btn secondary">About me</a></div></Reveal>
-        </div>
-      </section>
-
-      <section id="work" className="section">
-        <div className="container">
-          <Reveal><div className="section-head"><div className="mono">Selected work</div><h2 className="display">A few things I’ve built.</h2><p>Click a card to open it like a window. Scroll direction reverses the motion for a more tactile gallery.</p></div></Reveal>
-
-          <div className="marquee-wrap"><div ref={aRef} className="marquee">{marqueeA.map((p,i)=><ProjectCard key={"a"+i} p={p} onOpen={setActive}/>)}</div></div>
-          <div className="marquee-wrap" style={{marginTop:18}}><div ref={bRef} className="marquee reverse">{marqueeB.map((p,i)=><ProjectCard key={"b"+i} p={p} onOpen={setActive}/>)}</div></div>
-        </div>
-      </section>
-
-      <section id="about" className="section">
-        <div className="container grid">
-          <Reveal><div className="panel glass"><div className="mono">About</div><h3>Design-minded. Detail-obsessed. Built for the web.</h3><p>I care about the space between a strong concept and the tiny interaction that makes it feel alive. My workflow blends brand thinking, UI systems, motion and implementation.</p></div></Reveal>
-          <Reveal delay={.08}><div className="panel glass"><div className="mono">Approach</div><h3>Make the interface feel inevitable.</h3><p>Clear hierarchy, deliberate motion, fast feedback and responsive behavior — without turning the experience into visual noise.</p></div></Reveal>
-        </div>
-      </section>
-
-      <section id="capabilities" className="section">
-        <div className="container">
-          <Reveal><div className="section-head"><div className="mono">Capabilities</div><h2 className="display">From first frame to final deploy.</h2></div></Reveal>
-          <div className="project-list">
-            {[["01","Brand & Visual Systems","Identity, art direction, typography and component languages that stay coherent as the product grows."],["02","UI / UX Design","Flows, layouts, responsive systems and interaction details shaped around clarity and conversion."],["03","Motion & Interaction","Scroll choreography, micro-interactions, transitions and motion that communicates rather than distracts."],["04","Front-end Build","Next.js, React, Tailwind and production-minded implementation with performance in mind."]].map(([k,t,d],i)=><Reveal key={k} delay={i*.05}><article className="project glass"><div><div className="kicker">{k}</div><h3>{t}</h3><p>{d}</p></div><span className="mono">Explore ↗</span></article></Reveal>)}
-          </div>
-        </div>
-      </section>
-
-      <footer id="contact" className="footer">
-        <div className="container">
-          <Reveal><div className="footer-main"><div><div className="mono">Have a project in mind?</div><h2 className="display">Let’s make something<br/><span style={{color:"var(--accent)"}}>worth remembering.</span></h2></div><div><a className="btn primary" href="mailto:saket1dandekar@gmail.com">Start a conversation ↗</a><small>© {new Date().getFullYear()} Saket Dandekar</small></div></div></Reveal>
-        </div>
-      </footer>
-    </main>
-
-    <AnimatePresence>
-      {active && <motion.div className="modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-        <div className="backdrop" onClick={()=>setActive(null)}/>
-        <motion.div className="window" initial={{scale:.92,y:24,opacity:0}} animate={{scale:1,y:0,opacity:1}} exit={{scale:.95,y:16,opacity:0}} transition={{duration:.2,ease:[.16,1,.3,1]}} onClick={e=>e.stopPropagation()}>
-          <div className="chrome"><button aria-label="Close" onClick={()=>setActive(null)} className="traffic r"/><span className="traffic y"/><span className="traffic g"/><span style={{marginLeft:8,color:"rgba(255,255,255,.38)",font:"11px DM Mono"}}>{active.title.toLowerCase().replace(/\s+/g,"-")}.aura</span></div>
-          <div className="window-body"><img src={active.src} alt={active.title}/><div className="info"><div className="info-copy"><h3>{active.title}</h3><p>{active.description}</p></div><a className="live" href={active.href} target="_blank" rel="noreferrer">Live preview ↗</a></div></div>
-        </motion.div>
-      </motion.div>}
-    </AnimatePresence>
-  </>
+      <div className="canBottom" />
+    </div>
+  );
 }
 
-function ProjectCard({p,onOpen}:{p:Project;onOpen:(p:Project)=>void}){
-  return <button className="card" onClick={()=>onOpen(p)} aria-label={p.title}><img src={p.src} alt="" loading="lazy"/></button>
+export default function Page() {
+  const [active, setActive] = useState(0);
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 180]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 16]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") setActive((v) => (v + 1) % flavors.length);
+      if (e.key === "ArrowLeft") setActive((v) => (v - 1 + flavors.length) % flavors.length);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const current = flavors[active];
+
+  return (
+    <main style={{ "--theme": current.color, "--ink": current.accent } as React.CSSProperties}>
+      <nav className="nav">
+        <a className="wordmark" href="#">SPYLT<span>®</span></a>
+        <div className="navLinks">
+          <a href="#flavors">FLAVORS</a><a href="#benefits">WHY SPYLT</a><a href="#stories">STORIES</a>
+        </div>
+        <a className="order" href="#shop">SHOP <span>↗</span></a>
+      </nav>
+
+      <section ref={heroRef} className="hero">
+        <div className="heroNoise" />
+        <div className="heroCopy">
+          <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="eyebrow">THE MILK THAT DOES MORE</motion.p>
+          <motion.h1 initial={{ opacity: 0, scale: .92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .8 }} className="heroTitle">
+            PROTEIN<br /><em>WITH A</em><br />PERSONALITY.
+          </motion.h1>
+          <p className="heroSub">A seriously good chocolate milk packed with protein and a kick of caffeine. No boring shakes. No compromise.</p>
+          <div className="heroCtas"><a className="pill dark" href="#flavors">MEET THE FLAVORS <span>↓</span></a><a className="pill" href="#benefits">WHY IT HITS</a></div>
+        </div>
+        <motion.div style={{ y, rotate }} className="heroCan"><Can flavor={current} large /></motion.div>
+        <div className="ticker"><span>HIGH PROTEIN • REAL MILK • CAFFEINE • ZERO BORING • </span><span>HIGH PROTEIN • REAL MILK • CAFFEINE • ZERO BORING • </span></div>
+      </section>
+
+      <section className="statement">
+        <div className="statementInner">
+          <p className="eyebrow">NOT YOUR AVERAGE MILK</p>
+          <h2>THE GOOD STUFF<br /><i>SHOULDN’T</i> BE BORING.</h2>
+          <p className="statementText">SPYLT turns the post-workout routine into something you actually look forward to. Big flavor, useful fuel, and a visual identity with zero chill.</p>
+        </div>
+      </section>
+
+      <section id="flavors" className="flavors">
+        <div className="sectionTop"><p className="eyebrow">PICK YOUR MOOD</p><span>0{active + 1} / 0{flavors.length}</span></div>
+        <div className="flavorStage">
+          <div className="flavorWords">
+            <p>FLAVOR</p>
+            <h2>{current.name}</h2>
+            <span>{current.note}</span>
+          </div>
+          <motion.div key={current.name} initial={{ y: 80, opacity: 0, rotate: -8 }} animate={{ y: 0, opacity: 1, rotate: 4 }} transition={{ type: "spring", stiffness: 110, damping: 14 }} className="flavorCan"><Can flavor={current} large /></motion.div>
+          <div className="flavorNav"><button onClick={() => setActive((active - 1 + flavors.length) % flavors.length)}>←</button><button onClick={() => setActive((active + 1) % flavors.length)}>→</button></div>
+        </div>
+        <div className="flavorRail">{flavors.map((f, i) => <button key={f.name} onClick={() => setActive(i)} className={i === active ? "flavorDot active" : "flavorDot"}><span style={{ background: f.color }} /><b>{f.name}</b></button>)}</div>
+      </section>
+
+      <section id="benefits" className="benefits">
+        <div className="benefitTitle"><p className="eyebrow">THE WHY</p><h2>FUNCTION<br /><i>MEETS</i><br />FLAVOR.</h2></div>
+        <div className="benefitGrid">
+          {[
+            ["30g+", "PROTEIN", "Built to help you hit your protein without choking down another sad shake."],
+            ["180mg", "CAFFEINE", "A clean little jolt for training, creating, commuting, or surviving Monday."],
+            ["REAL", "MILK", "Creamy, familiar, ridiculously drinkable. The original comfort food got an upgrade."],
+            ["0", "BORING", "No beige branding. No sleepy copy. No reason to hide your drink in the back of the fridge."]
+          ].map(([big, label, copy], i) => <motion.article whileHover={{ y: -8, rotate: i % 2 ? 1 : -1 }} key={label} className="benefitCard"><strong>{big}</strong><h3>{label}</h3><p>{copy}</p><span>0{i + 1}</span></motion.article>)}
+        </div>
+      </section>
+
+      <section id="stories" className="stories">
+        <div className="storyBig">GOOD<br /><i>ENERGY</i><br />LOOKS<br />LIKE THIS.</div>
+        <div className="storyCards"><article><span>01</span><h3>Gym bag approved.</h3><p>Protein without the powdery aftertaste. Grab it cold and go.</p></article><article><span>02</span><h3>Desk drawer essential.</h3><p>When the 3PM crash arrives, make the fridge your new meeting room.</p></article><article><span>03</span><h3>Flavor first.</h3><p>Because nutrition is easier to stick with when it tastes like a treat.</p></article></div>
+      </section>
+
+      <section id="shop" className="shop">
+        <div className="shopCan"><Can flavor={flavors[5]} large /></div>
+        <div><p className="eyebrow">READY WHEN YOU ARE</p><h2>GRAB A<br /><i>SPYLT.</i></h2><p className="shopCopy">Six flavors. One very unserious approach to serious nutrition.</p><a className="pill dark" href="#">SHOP THE RANGE <span>↗</span></a></div>
+      </section>
+
+      <footer><a className="wordmark" href="#">SPYLT<span>®</span></a><p>Protein milk with personality.</p><div><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Contact</a></div><small>© {new Date().getFullYear()} SPYLT. Built as an independent front-end recreation.</small></footer>
+    </main>
+  );
 }
